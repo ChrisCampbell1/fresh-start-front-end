@@ -6,4 +6,4 @@ const LikesCounter = () => {
   )
 }
 
-export default LikesCounter;
+export default LikesCounter

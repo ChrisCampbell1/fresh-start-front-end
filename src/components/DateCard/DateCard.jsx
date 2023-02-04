@@ -6,4 +6,4 @@ const DateCard = () => {
   )
 }
 
-export default DateCard;
+export default DateCard

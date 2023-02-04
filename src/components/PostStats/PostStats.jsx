@@ -11,4 +11,4 @@ const PostStats = () => {
   )
 }
 
-export default PostStats;
+export default PostStats
