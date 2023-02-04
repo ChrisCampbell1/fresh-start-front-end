@@ -1,0 +1,42 @@
+#mobileNav{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  background-color: black;
+  min-height: 108px;
+  width: 100%;
+  /* justify-content: center; */
+}
+
+#navHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#navHeader img{
+  margin: 0;
+}
+
+#mobileMenuBtn {
+  position: fixed;
+  right: 25px;
+  top: 20px;
+  font-size: 48px;
+  color: white;
+  border: none;
+  background-color: unset;
+  margin: none;
+  padding: none;
+}
+
+a {
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
