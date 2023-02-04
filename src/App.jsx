@@ -8,6 +8,8 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import Discover from './pages/Discover/Discover'
+import Journeys from './pages/Journeys/Journeys'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -59,6 +61,22 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/discover"
+          element={
+            <ProtectedRoute user={user}>
+              <Discover />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/journeys"
+          element={
+            <ProtectedRoute user={user}>
+              <Journeys />
             </ProtectedRoute>
           }
         />
