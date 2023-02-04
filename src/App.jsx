@@ -14,6 +14,7 @@ import Profile from './pages/Profile/Profile'
 import NewPost from './pages/NewPost/NewPost'
 import EditPost from './pages/EditPost/EditPost'
 import PostDetails from './pages/PostDetails/PostDetails'
+import JourneyDetails from './pages/JourneyDetails/JourneyDetails'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -113,6 +114,14 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <PostDetails />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/journeys/:id"
+          element={
+            <ProtectedRoute user={user}>
+              <JourneyDetails />
             </ProtectedRoute>
           }
         />
