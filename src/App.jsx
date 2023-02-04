@@ -15,6 +15,8 @@ import NewPost from './pages/NewPost/NewPost'
 import EditPost from './pages/EditPost/EditPost'
 import PostDetails from './pages/PostDetails/PostDetails'
 import JourneyDetails from './pages/JourneyDetails/JourneyDetails'
+import EditJourney from './pages/EditJourney/EditJourney'
+import NewJourney from './pages/NewJourney/NewJourney'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -85,6 +87,30 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+          <Route 
+            path="/journeys/:id"
+            element={
+              <ProtectedRoute user={user}>
+                <JourneyDetails />
+              </ProtectedRoute>
+            }
+          />
+        <Route 
+          path="/journeys/new"
+          element={
+            <ProtectedRoute user={user}>
+              <NewJourney />
+            </ProtectedRoute>
+          }
+          />
+        <Route 
+          path="/journeys/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditJourney />
+            </ProtectedRoute>
+          }
+          />
         <Route 
           path="/profile"
           element={
@@ -92,15 +118,15 @@ const App = () => {
               <Profile />
             </ProtectedRoute>
           }
-        />
+          />
         <Route 
-          path="/newpost"
+          path="/posts/new"
           element={
             <ProtectedRoute user={user}>
               <NewPost />
             </ProtectedRoute>
           }
-        />
+          />
         <Route 
           path="/posts/:id/edit"
           element={
@@ -108,7 +134,7 @@ const App = () => {
               <EditPost />
             </ProtectedRoute>
           }
-        />
+          />
         <Route 
           path="/posts/:id"
           element={
@@ -116,15 +142,7 @@ const App = () => {
               <PostDetails />
             </ProtectedRoute>
           }
-        />
-        <Route 
-          path="/journeys/:id"
-          element={
-            <ProtectedRoute user={user}>
-              <JourneyDetails />
-            </ProtectedRoute>
-          }
-        />
+          />
       </Routes>
     </>
   )
