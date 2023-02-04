@@ -9,21 +9,22 @@ const NavBar = ({ user, handleLogout }) => {
   const handleNavBtnClick = () => {
     setNavState(!navState)
   }
+
   const publicLinks = (
     <ul>
-      <li><Link to="/login">Log In</Link></li>
-      <li><Link to="/signup">Sign Up</Link></li>
+      <li><Link onClick={() => handleNavBtnClick()} to="/login">Log In</Link></li>
+      <li><Link onClick={() => handleNavBtnClick()} to="/signup">Sign Up</Link></li>
     </ul>
   )
 
   const protectedLinks = (
     <ul>
-      <li><Link to="/">Feed</Link></li>
-      <li><Link to="/discover">Discover</Link></li>
-      <li><Link to="/journeys">Journeys</Link></li>
-      <li><Link to="/profiles">Profiles</Link></li>
-      <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
-      <li><Link to="/change-password">Change Password</Link></li>
+      <li><Link onClick={() => handleNavBtnClick()} to="/">Feed</Link></li>
+      <li><Link onClick={() => handleNavBtnClick()} to="/discover">Discover</Link></li>
+      <li><Link onClick={() => handleNavBtnClick()} to="/journeys">Journeys</Link></li>
+      <li><Link onClick={() => handleNavBtnClick()} to="/profiles">Profiles</Link></li>
+      <li><Link  to="" onClick={handleLogout}>LOG OUT</Link></li>
+      <li><Link onClick={() => handleNavBtnClick()} to="/change-password">Change Password</Link></li>
   </ul>
   )
   return (
