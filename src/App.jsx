@@ -13,6 +13,7 @@ import Journeys from './pages/Journeys/Journeys'
 import Profile from './pages/Profile/Profile'
 import NewPost from './pages/NewPost/NewPost'
 import EditPost from './pages/EditPost/EditPost'
+import PostDetails from './pages/PostDetails/PostDetails'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -104,6 +105,14 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <EditPost />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/posts/:id"
+          element={
+            <ProtectedRoute user={user}>
+              <PostDetails />
             </ProtectedRoute>
           }
         />
