@@ -11,6 +11,8 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Discover from './pages/Discover/Discover'
 import Journeys from './pages/Journeys/Journeys'
 import Profile from './pages/Profile/Profile'
+import NewPost from './pages/NewPost/NewPost'
+import EditPost from './pages/EditPost/EditPost'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -86,6 +88,22 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/newpost"
+          element={
+            <ProtectedRoute user={user}>
+              <NewPost />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/posts/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditPost />
             </ProtectedRoute>
           }
         />
