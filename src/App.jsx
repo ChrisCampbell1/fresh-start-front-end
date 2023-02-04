@@ -8,6 +8,15 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import Discover from './pages/Discover/Discover'
+import Journeys from './pages/Journeys/Journeys'
+import Profile from './pages/Profile/Profile'
+import NewPost from './pages/NewPost/NewPost'
+import EditPost from './pages/EditPost/EditPost'
+import PostDetails from './pages/PostDetails/PostDetails'
+import JourneyDetails from './pages/JourneyDetails/JourneyDetails'
+import EditJourney from './pages/EditJourney/EditJourney'
+import NewJourney from './pages/NewJourney/NewJourney'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -62,6 +71,78 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route 
+          path="/discover"
+          element={
+            <ProtectedRoute user={user}>
+              <Discover />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/journeys"
+          element={
+            <ProtectedRoute user={user}>
+              <Journeys />
+            </ProtectedRoute>
+          }
+        />
+          <Route 
+            path="/journeys/:id"
+            element={
+              <ProtectedRoute user={user}>
+                <JourneyDetails />
+              </ProtectedRoute>
+            }
+          />
+        <Route 
+          path="/journeys/new"
+          element={
+            <ProtectedRoute user={user}>
+              <NewJourney />
+            </ProtectedRoute>
+          }
+          />
+        <Route 
+          path="/journeys/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditJourney />
+            </ProtectedRoute>
+          }
+          />
+        <Route 
+          path="/profile"
+          element={
+            <ProtectedRoute user={user}>
+              <Profile />
+            </ProtectedRoute>
+          }
+          />
+        <Route 
+          path="/posts/new"
+          element={
+            <ProtectedRoute user={user}>
+              <NewPost />
+            </ProtectedRoute>
+          }
+          />
+        <Route 
+          path="/posts/:id/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditPost />
+            </ProtectedRoute>
+          }
+          />
+        <Route 
+          path="/posts/:id"
+          element={
+            <ProtectedRoute user={user}>
+              <PostDetails />
+            </ProtectedRoute>
+          }
+          />
       </Routes>
     </>
   )

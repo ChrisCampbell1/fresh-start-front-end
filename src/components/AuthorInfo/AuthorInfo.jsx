@@ -1,5 +1,5 @@
 import styles from './AuthorInfo.module.css'
-import DateCard from '../DateCard/DateCard';
+import DateCard from '../DateCard/DateCard'
 
 const AuthorInfo = () => {
   return (  
@@ -10,4 +10,4 @@ const AuthorInfo = () => {
   )
 }
 
-export default AuthorInfo;
+export default AuthorInfo

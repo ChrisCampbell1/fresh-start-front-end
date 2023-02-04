@@ -13,4 +13,4 @@ const Icon = ({ category }) => {
   )
 }
 
-export default Icon;
+export default Icon
