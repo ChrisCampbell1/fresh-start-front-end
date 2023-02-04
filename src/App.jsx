@@ -10,6 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Discover from './pages/Discover/Discover'
 import Journeys from './pages/Journeys/Journeys'
+import Profile from './pages/Profile/Profile'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -77,6 +78,14 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <Journeys />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/profile"
+          element={
+            <ProtectedRoute user={user}>
+              <Profile />
             </ProtectedRoute>
           }
         />
