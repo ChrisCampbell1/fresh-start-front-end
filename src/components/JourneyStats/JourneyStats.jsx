@@ -2,11 +2,11 @@ import styles from './JourneyStats.module.css'
 import SubscriberCounter from '../SubscriberCounter/SubscriberCounter'
 import RatingCalculator from '../RatingCalculator/RatingCalculator'
 
-const JourneyStats = () => {
+const JourneyStats = ({ journey }) => {
   return (  
     <div className={styles.container}>
-      <SubscriberCounter />
-      <RatingCalculator />
+      <SubscriberCounter journey={journey}/>
+      <RatingCalculator journey={journey}/>
     </div>
   )
 }

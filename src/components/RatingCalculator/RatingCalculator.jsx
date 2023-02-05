@@ -1,8 +1,9 @@
 import styles from './RatingCalculator.module.css'
+import { averageRating } from '../../utilities/averageRating'
 
-const RatingCalculator = () => {
+const RatingCalculator = ({ journey }) => {
   return (  
-    <p>Average Rating displayed here</p>
+    <p><strong>Rating:</strong> {averageRating(journey.reviews)}</p>
   )
 }
 

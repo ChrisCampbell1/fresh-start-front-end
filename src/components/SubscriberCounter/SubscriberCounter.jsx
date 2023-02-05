@@ -1,8 +1,8 @@
 import styles from './SubscriberCounter.module.css'
 
-const SubscriberCounter = () => {
+const SubscriberCounter = ({ journey }) => {
   return (  
-    <p>number of Subscribers displayed here</p>
+    <p><strong>Subscribers:</strong> {journey.subscribers.length}</p>
   )
 }
 
