@@ -6,6 +6,10 @@
   text-align: center;
 }
 
+.container a {
+  color: black;
+}
+
 .journeyStats {
   display: flex;
   flex-direction: row;
