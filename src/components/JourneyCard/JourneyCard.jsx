@@ -1,5 +1,5 @@
 import styles from './JourneyCard.module.css'
-import PostStats from '../PostStats/PostStats'
+import JourneyStats from '../JourneyStats/JourneyStats'
 
 const JourneyCard = () => {
   return (  
@@ -8,7 +8,7 @@ const JourneyCard = () => {
     <img className={styles.cardPhoto} src="https://picsum.photos/200" alt="journey name" />
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt et, tempore, doloremque minima maxime nobis reiciendis assumenda suscipit voluptatum ducimus praesentium molestias! Iusto voluptate aspernatur, dolore ratione hic ea provident!</p>
     <div className={styles.journeyStats}>
-      <PostStats />
+      <JourneyStats />
     </div>
   </div>
   )
