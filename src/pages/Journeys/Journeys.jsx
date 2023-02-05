@@ -1,6 +1,6 @@
+import styles from './Journeys.module.css'
 import * as journeyService from '../../services/journeyService'
 import { useState, useEffect } from 'react'
-import styles from './Journeys.module.css'
 import JourneyCard from '../../components/JourneyCard/JourneyCard'
 
 const Journeys = () => {
