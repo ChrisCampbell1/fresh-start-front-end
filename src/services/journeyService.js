@@ -1,5 +1,4 @@
 import * as tokenService from './tokenService'
-import { addPhoto as addProfilePhoto } from './profileService'
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/journeys`
 
 const index = async () => {
@@ -24,7 +23,25 @@ const show = async (id) => {
   }
 }
 
+const createReviews = async (id, reviewData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}/reviews`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(reviewData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
 export {
   index,
-  show
+  show,
+  createReviews,
 }
