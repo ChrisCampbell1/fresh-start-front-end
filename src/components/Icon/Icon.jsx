@@ -6,7 +6,7 @@ const Icon = ({ category }) => {
   const icons = {
     Fitness: barbell,
     Food: meal,
-    thought
+    BlogEntry: thought,
   }
   return (  
     <img className='icon' src={icons[category]} alt={`a ${category} icon`} />
