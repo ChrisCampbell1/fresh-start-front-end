@@ -1,21 +1,29 @@
 import styles from './NewPost.module.css'
 import { useState, useEffect } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
 import * as profileService from '../../services/profileService'
-
+import * as postService  from '../../services/postService'
 
 const NewPost = (props) => {
+  const navigate = useNavigate()
+  
   const [form, setForm] = useState({
     title: '',
     category: 'Food',
     journey: '',
     content: '',
-    photo: ''
   })
+
+  const [photoData, setPhotoData] = useState({})
 
   const [journeys, setJourneys] = useState([])
 
   const handleChange = ({ target }) => {
     setForm({ ...form, [target.name]: target.value })
+  }
+
+  const handleChangePhoto = (evt) => {
+    setPhotoData({photo: evt.target.files[0]})
   }
 
   useEffect(() => {
@@ -27,15 +35,16 @@ const NewPost = (props) => {
     console.log(journeys)
   }, [])
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault()
-    
+    postService.create(form)
+    navigate('/')
   }
 
   return (  
     <main className={styles.container}>
       <h1>This is the New Post Page</h1>
-      <form>
+      <form autoComplete='off' onSubmit={handleSubmit}>
         <label htmlFor='title-input'>Title</label>
         <input
           required
@@ -84,13 +93,12 @@ const NewPost = (props) => {
         />
         <label htmlFor="photo-input">Add a Photo</label>
         <input
-          required
           type='file'
           name='photo'
           id='photo-input'
-          onChange={handleChange}
+          onChange={handleChangePhoto}
         />
-        <button type="submit">Submit Post</button>
+        <button>Submit Post</button>
       </form>
     </main>
   )

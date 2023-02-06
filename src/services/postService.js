@@ -26,21 +26,35 @@ const show = async (id) => {
 
 const create = async (form) => {
   try {
-    const res = await fetch(BASE_URL, {
+    const res = await fetch(`${BASE_URL}`, {
       method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${tokenService.getToken()}`,
-        'Content-Type': 'application/json'
-      },
-
+      headers: { 
+        'Content-Type': 'application/json', 
+        'Authorization': `Bearer ${tokenService.getToken()}`},
+      body: JSON.stringify(form),
     })
-  } catch (error) {
-    console.log(error)
+    return res.json()
+    }
+  catch (error) {
+    throw error
   }
 }
+
+  async function addPostPhoto(photoData, postId) {
+    console.log(photoData);
+    const res = await fetch(`${BASE_URL}/${postId}/add-photo`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      body: photoData
+    })
+    return await res.json()
+  }
 
 export {
   index,
   show,
-  create
+  create,
+  addPostPhoto
 }
