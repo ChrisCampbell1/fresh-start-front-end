@@ -24,6 +24,7 @@ const NewPost = (props) => {
       setJourneys(profile.journeys)
     }
     fetchJourneys()
+    console.log(journeys)
   }, [])
 
 console.log(props.user.profile)
@@ -63,10 +64,9 @@ console.log(props.user.profile)
           value={form.journey}
           onChange={handleChange}
         >
-          {/* {props.user.profile.journeys.map(journey =>
+          {journeys.map(journey => 
             <option key={journey._id} value={journey._id}>{journey.name}</option>  
-          )} */}
-          <option value=""></option>
+          )}
         </select>
       </form>
     </main>
