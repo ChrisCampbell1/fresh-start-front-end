@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom'
 const JourneyCard = ({ journey }) => {
   return (  
   <div className={styles.container}>
-    <Link to={`/journeys/${journey._id}`}>
+    <Link to={`/journeys/${journey._id}`} state={journey}>
       <h2>{journey.name}</h2>
     </Link>
-    <Link to={`/journeys/${journey._id}`}>
+    <Link to={`/journeys/${journey._id}`} state={journey}>
       <img className={styles.cardPhoto} src="https://picsum.photos/200" alt="journey name" />
     </Link>
     <p>{journey.description}</p>

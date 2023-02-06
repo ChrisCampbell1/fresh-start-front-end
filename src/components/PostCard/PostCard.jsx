@@ -2,8 +2,9 @@ import styles from './PostCard.module.css'
 import Icon from '../Icon/Icon'
 import AuthorInfo from '../AuthorInfo/AuthorInfo'
 import PostStats from '../PostStats/PostStats'
+import { Link } from 'react-router-dom'
 
-const PostCard = () => {
+const PostCard = ({ post }) => {
   let category = "meal"
   return (  
   <div className={styles.container}>

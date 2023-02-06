@@ -1,12 +1,12 @@
 import styles from './JourneyDetails.module.css'
-import * as journeyService from '../../services/journeyService'
-import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useParams, useLocation } from 'react-router-dom'
+import { useState } from 'react'
 
 const JourneyDetails = () => {
   const {id} = useParams()
+  const { state } = useLocation()
   
-  const [journey, setJourney] = useState({})
+  const [journey, setJourney] = useState(state)
   const [reviewsState, setReviewsState] = useState(true)
 
   const handleReviewsClick = () => {
@@ -15,15 +15,6 @@ const JourneyDetails = () => {
   const handleSubscribersClick = () => {
     setReviewsState(false)
   }
-
-  useEffect(() => {
-    console.log("use effect fired")
-    const fetchJourney = async () => {
-      const data = await journeyService.show(id)
-      setJourney(data)
-    }
-    fetchJourney()
-  }, [id])
   
   return (  
     <main className={styles.container}>
@@ -40,15 +31,15 @@ const JourneyDetails = () => {
       </div>
       {reviewsState ?
       <div>
-        {/* {journey.reviews.map(review => 
+        {journey.reviews.map(review => 
           <p>this is a review</p>
-        )} */}
+        )}
       </div>
       :
       <div>
-        {/* {journey.subscribers.map(review => 
+        {journey.subscribers.map(review => 
           <p>this is a subscriber</p>  
-        )} */}
+        )}
       </div>
       }
     </main>
