@@ -24,7 +24,23 @@ const show = async (id) => {
   }
 }
 
+const create = async (form) => {
+  try {
+    const res = await fetch(BASE_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   index,
-  show
+  show,
+  create
 }
