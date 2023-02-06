@@ -5,6 +5,9 @@ import DateCard from '../DateCard/DateCard'
 const AuthorInfo = ({ author, date }) => {
   return (  
     <div className={styles.container}>
+      <div className={styles.avatar} >
+
+      </div>
       <img src={author?.photo} alt="author avatar" />
       <p><strong>Author:</strong> <Link className={styles.link} to={`/profiles/${author._id}`}>{author.name}</Link></p>
       <DateCard date={date}/>
