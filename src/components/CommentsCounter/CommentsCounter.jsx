@@ -1,8 +1,8 @@
 import styles from './CommentsCounter.module.css'
 
-const CommentsCounter = () => {
+const CommentsCounter = ({ post }) => {
   return (  
-    <p>Number of comments here</p>
+    <p><strong>Comments:</strong> {post.comments.length}</p>
   )
 }
 

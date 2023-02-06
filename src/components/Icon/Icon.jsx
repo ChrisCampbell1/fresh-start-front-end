@@ -4,8 +4,8 @@ import thought from '../../assets/icons/thought.svg'
 
 const Icon = ({ category }) => {
   const icons = {
-    barbell,
-    meal,
+    Fitness: barbell,
+    Food: meal,
     thought
   }
   return (  

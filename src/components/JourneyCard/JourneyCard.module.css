@@ -6,17 +6,17 @@
   text-align: center;
 }
 
-.container a{
+.container a {
   color: black;
 }
 
-.postStats {
+.journeyStats {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.postPhoto {
+.cardPhoto {
   width: 200px;
   margin-left: auto;
   margin-right: auto;

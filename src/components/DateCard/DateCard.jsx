@@ -1,7 +1,8 @@
-const DateCard = () => {
+const DateCard = ({ date }) => {
+  const formattedDate = new Date(date).toLocaleDateString()
   return (  
     <div>
-      <p>Post Created Date</p>
+      <p><strong>Date Created:</strong> {formattedDate}</p>
     </div>
   )
 }

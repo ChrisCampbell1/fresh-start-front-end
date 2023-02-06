@@ -1,8 +1,8 @@
 import styles from './LikesCounter.module.css'
 
-const LikesCounter = () => {
+const LikesCounter = ({ post }) => {
   return (  
-    <p>number of likes displayed here</p>
+    <p><strong>Likes:</strong> {post.likes.length}</p>
   )
 }
 

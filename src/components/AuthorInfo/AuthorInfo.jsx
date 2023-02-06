@@ -1,11 +1,11 @@
 import styles from './AuthorInfo.module.css'
 import DateCard from '../DateCard/DateCard'
 
-const AuthorInfo = () => {
+const AuthorInfo = ({ author, date }) => {
   return (  
     <div>
-      <p>this is AuthorInfo</p>
-      <DateCard />
+      <p><strong>Author:</strong> {author.name}</p>
+      <DateCard date={date}/>
     </div>
   )
 }
