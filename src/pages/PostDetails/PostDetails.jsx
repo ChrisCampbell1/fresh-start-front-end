@@ -33,6 +33,9 @@ const PostDetails = (props) => {
       }
       <p>{post.content}</p>
       <PostStats post={post}/>
+      <form>
+        
+      </form>
       </>
       :
       <>

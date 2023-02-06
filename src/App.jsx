@@ -123,7 +123,7 @@ const App = () => {
           path="/posts/new"
           element={
             <ProtectedRoute user={user}>
-              <NewPost />
+              <NewPost user={user}/>
             </ProtectedRoute>
           }
           />
