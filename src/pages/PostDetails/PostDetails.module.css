@@ -1,3 +1,11 @@
 .container {
-  
+  text-align: center;
+}
+
+.hero {
+  width: 100%;
+}
+
+.container a {
+  color: black;
 }

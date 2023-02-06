@@ -123,7 +123,7 @@ const App = () => {
           path="/posts/new"
           element={
             <ProtectedRoute user={user}>
-              <NewPost />
+              <NewPost user={user}/>
             </ProtectedRoute>
           }
           />
@@ -131,7 +131,7 @@ const App = () => {
           path="/posts/:id/edit"
           element={
             <ProtectedRoute user={user}>
-              <EditPost />
+              <EditPost user={user}/>
             </ProtectedRoute>
           }
           />
@@ -139,7 +139,7 @@ const App = () => {
           path="/posts/:id"
           element={
             <ProtectedRoute user={user}>
-              <PostDetails />
+              <PostDetails user={user}/>
             </ProtectedRoute>
           }
           />
