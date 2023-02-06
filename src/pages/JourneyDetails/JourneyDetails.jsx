@@ -16,7 +16,7 @@ const JourneyDetails = () => {
   const handleSubscribersClick = () => {
     setReviewsState(false)
   }
-  
+
   return (  
     <main className={styles.container}>
       <h1>{journey.name}</h1>
