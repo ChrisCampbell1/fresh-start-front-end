@@ -52,9 +52,25 @@ const create = async (form) => {
     return await res.json()
   }
 
+  const update = async (postData, id) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${id}`, {
+        method: 'PUT',
+        headers: { 
+          'Content-Type': 'application/json', 
+          'Authorization': `Bearer ${tokenService.getToken()}`},
+        body: JSON.stringify(postData)
+      })
+      return res.json()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 export {
   index,
   show,
   create,
-  addPostPhoto
+  addPostPhoto,
+  update
 }

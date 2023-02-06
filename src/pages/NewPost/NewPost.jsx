@@ -1,6 +1,6 @@
 import styles from './NewPost.module.css'
 import { useState, useEffect } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import * as profileService from '../../services/profileService'
 import * as postService  from '../../services/postService'
 

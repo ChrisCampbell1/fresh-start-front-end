@@ -28,7 +28,7 @@ const PostDetails = (props) => {
       <AuthorInfo author={post.author} date={post.createdAt}/>
       {post.author._id === props.user.profile &&
       <>
-        <Link to={`/posts/${post._id}/edit`}>Edit Post</Link>
+        <Link to={`/posts/${post._id}/edit`} state={{post}}>Edit Post</Link>
       </>
       }
       <p>{post.content}</p>
