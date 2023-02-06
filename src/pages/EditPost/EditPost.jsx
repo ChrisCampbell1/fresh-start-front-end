@@ -1,5 +1,5 @@
 import styles from './EditPost.module.css'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import * as profileService from '../../services/profileService'
 import * as postService  from '../../services/postService'
@@ -33,6 +33,11 @@ const EditPost = (props) => {
   const handleSumbit = () => {
     postService.update(form, post._id)
     navigate(`/posts/${post._id}`)
+  }
+
+  const handleDeletePost = () => {
+    postService.delete(post._id)
+    navigate('/')
   }
 
   return (  
@@ -92,8 +97,9 @@ const EditPost = (props) => {
           id='photo-input'
           onChange={handleChangePhoto}
         />
-        <button>Submit Post</button>
+        <button>Edit Post</button>
       </form>
+      <button onClick={() => handleDeletePost()}>Delete Post</button>
     </main>
   )
 }
