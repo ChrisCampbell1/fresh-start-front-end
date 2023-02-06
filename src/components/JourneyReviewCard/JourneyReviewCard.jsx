@@ -1,13 +1,15 @@
-import styles from './ReviewCard.module.css'
+import styles from './JourneyReviewCard.module.css'
 import AuthorInfo from '../AuthorInfo/AuthorInfo'
 
-const ReviewCard = ({ review }) => {
-  console.log(review, "review")
+const JourneyReviewCard = ({ review }) => {
   return (  
     <div className={styles.container}>
       <AuthorInfo author={review.author} date={review.createdAt}/>
+      <div>
+        <p>{review.content}</p>
+      </div>
     </div>
   )
 }
 
-export default ReviewCard
+export default JourneyReviewCard
