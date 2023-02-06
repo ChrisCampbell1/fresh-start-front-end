@@ -1,5 +1,5 @@
 import styles from './Loading.module.css'
-import LoadingIcon from '../../assets/branding/loading-svgrepo.svg'
+import LoadingIcon from '../../assets/icons/loading-svgrepo.svg'
 
 const Loading = () => {
   return (

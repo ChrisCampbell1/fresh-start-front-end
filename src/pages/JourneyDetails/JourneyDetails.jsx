@@ -2,6 +2,7 @@ import styles from './JourneyDetails.module.css'
 import { useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
+import Loading from '../../components/Loading/Loading'
 import ReviewCard from '../../components/ReviewCard/ReviewCard'
 
 import * as journeyService from '../../services/journeyService'
@@ -25,13 +26,16 @@ const JourneyDetails = () => {
     }
     fetchJourney()
   }, [id])
+
+  if (!journey) return <Loading />
   
   return (  
     <main className={styles.container}>
-      {journey && (
         <>
           <h1>{journey.name}</h1>
-          <img src="https://picsum.photos/600/300" alt="" />
+          <div>
+            <img src= {journey.photo} alt="Journey Cover" />
+          </div>
           <p>{journey.description}</p>
           <div>
             <button onClick={() => handleReviewsClick()}>
@@ -59,7 +63,6 @@ const JourneyDetails = () => {
             )
           }
         </>
-      )}
     </main>
   )
 }
