@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid gray;
+}
+
+.container * {
+  margin: 0;
+  padding: 0;
+}
+
+.container a {
+  color: black
+}
+
+.container .profilePhoto {
+  width: 12rem;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 12rem;
+}
+
+.container ul {
+  list-style: none;
+}
+
+.container .profileStats {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .profileStats > span{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .profileStats img {
+  width: 1rem;
+  height: 1rem;
+}
+

@@ -16,11 +16,10 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async (profileId) => {
       const profileData = await profileService.getProfile(profileId)
-      console.log(profileData)
       setProfile(profileData)
     }
     fetchProfile(profileId)
-  }, [])
+  }, [profileId])
 
   return (  
     <main className={styles.container}>
@@ -43,7 +42,7 @@ const Profile = () => {
                   <ul>
                     {profile.journeys.length ?
                       profile.journeys.map(journey => (
-                        <li>{journey.name}</li>
+                        <li key={journey._id}>{journey.name}</li>
                       ))
                       :
                       <li>No journeys yet...</li>
@@ -57,7 +56,7 @@ const Profile = () => {
             <ul>
               {profile.posts.length ?
                 profile.posts.map(post => (
-                  <PostCard post={post} />
+                  <PostCard key={post._id} post={post} />
                 ))
                 :
                 <li>No posts yet...</li>
