@@ -2,11 +2,11 @@ import styles from './PostStats.module.css'
 import LikesCounter from '../LikesCounter/LikesCounter'
 import CommentsCounter from '../CommentsCounter/CommentsCounter'
 
-const PostStats = () => {
+const PostStats = ({ post }) => {
   return (  
     <div>
-      <LikesCounter />
-      <CommentsCounter />
+      <LikesCounter post={post}/>
+      <CommentsCounter post={post}/>
     </div>
   )
 }

@@ -1,9 +1,10 @@
 import styles from './JourneyDetails.module.css'
-import { useParams, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { useState } from 'react'
+import ReviewCard from '../../components/ReviewCard/ReviewCard'
+
 
 const JourneyDetails = () => {
-  const {id} = useParams()
   const { state } = useLocation()
   
   const [journey, setJourney] = useState(state)
@@ -32,7 +33,7 @@ const JourneyDetails = () => {
       {reviewsState ?
       <div>
         {journey.reviews.map(review => 
-          <p>this is a review</p>
+          <ReviewCard key={review._id} review={review}/>
         )}
       </div>
       :
