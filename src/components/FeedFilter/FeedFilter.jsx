@@ -1,8 +1,17 @@
 import styles from './FeedFilter.module.css'
 
-const FeedFilter = () => {
+// datae created
+// journeys
+// 
+
+const FeedFilter = (props) => {
+  
   return (  
-    <h3>This is the FeedFilter component</h3>
+    <div className={styles.container}>
+      <span onClick={(evt) => props.handleClickFilter(evt)}>ASC</span>
+      <span>Member Since</span>
+      <span onClick={(evt) => props.handleClickFilter(evt)}>DESC</span>
+    </div>
   )
 }
 
