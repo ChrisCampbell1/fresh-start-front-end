@@ -3,11 +3,12 @@ import { useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import Loading from '../../components/Loading/Loading'
-import ReviewCard from '../../components/ReviewCard/ReviewCard'
+import NewReview from '../../components/NewReview/NewReivew'
+import JourneyReviews from '../../components/JourneyReviews/JourneyReviews'
 
 import * as journeyService from '../../services/journeyService'
 
-const JourneyDetails = () => {
+const JourneyDetails = (props) => {
   const { id } = useParams()
   const [journey, setJourney] = useState({})
   const [reviewsState, setReviewsState] = useState(true)
@@ -17,6 +18,11 @@ const JourneyDetails = () => {
   }
   const handleSubscribersClick = () => {
     setReviewsState(false)
+  }
+
+  const handleAddReview = async (reviewData) => {
+    const newReview = await journeyService.createReviews(id, reviewData)
+    setJourney({ ...journey, reviews: [...journey.reviews, newReview] })
   }
 
   useEffect(() => {
@@ -45,12 +51,14 @@ const JourneyDetails = () => {
               Subscribers
             </button>
           </div>
+          <div>
+            <h1>Add review</h1>
+            < NewReview handleAddReview={handleAddReview}/>
+          </div>
           {reviewsState ?
             journey.reviews && (
               <div>
-                {journey.reviews.map(review => 
-                  <ReviewCard key={review._id} review={review}/>
-                )}
+                  <JourneyReviews reviews={journey.reviews} user={props.user} />
               </div>
             )
           :
