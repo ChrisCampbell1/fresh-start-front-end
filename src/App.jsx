@@ -64,6 +64,14 @@ const App = () => {
           }
         />
         <Route
+          path="/profiles/:profileId"
+          element={
+            <ProtectedRoute user={user}>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/change-password"
           element={
             <ProtectedRoute user={user}>
@@ -108,14 +116,6 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <EditJourney />
-            </ProtectedRoute>
-          }
-          />
-        <Route 
-          path="/profile"
-          element={
-            <ProtectedRoute user={user}>
-              <Profile />
             </ProtectedRoute>
           }
           />
