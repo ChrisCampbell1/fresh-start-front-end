@@ -2,7 +2,7 @@ import styles from './Feed.module.css'
 import * as postService from '../../services/postService'
 import { useState, useEffect } from 'react'
 import PostCard from '../PostCard/PostCard'
-import FeedFilter from '../DiscoverFilter/DiscoverFilter'
+import FeedFilter from '../FeedFilter/FeedFilter'
 
 const Feed = () => {
   const [posts, setPosts] = useState([])
@@ -17,7 +17,7 @@ const Feed = () => {
 
   return (  
     <div className={styles.container}>
-      {/* <FeedFilter /> */}
+      <FeedFilter />
       {posts.map(post =>
         <PostCard key={post._id} post={post} />
       )}
