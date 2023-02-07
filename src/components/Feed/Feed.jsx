@@ -30,9 +30,13 @@ const Feed = () => {
   return (  
     <div className={styles.container}>
       <FeedFilter handleSort={handleSort} handleSearch={handleSearch} sortStatus={sortStatus} />
-      {searchedPosts.map(post =>
-        <PostCard key={post._id} post={post} />
-      )}
+      {searchedPosts.length ? 
+        searchedPosts.map(post =>
+          <PostCard key={post._id} post={post} />
+        )
+        :
+        <div>Loading posts...</div>
+      }
     </div>
   )
 }
