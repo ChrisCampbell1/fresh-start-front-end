@@ -1,8 +1,6 @@
 import styles from './JourneyDetails.module.css'
 import { useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
-
 
 import Loading from '../../components/Loading/Loading'
 import NewReview from '../../components/NewReview/NewReview'
@@ -117,7 +115,9 @@ const JourneyDetails = (props) => {
             ) :
             subscriberProfiles && subscriberProfiles.length > 0 ? (
               <div>
-                {subscriberProfiles.map(profile => 
+                {subscriberProfiles
+                .sort((a, b) => b.followers.length - a.followers.length)
+                .map(profile => 
                   <ProfileCard key={profile._id} profile={profile}/>
                 )}
               </div>

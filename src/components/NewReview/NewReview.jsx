@@ -12,7 +12,7 @@ const NewReview = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.handleAddReview(form)
-    setForm({ content: '', rating : '' })
+    setForm({ content: '', rating : '0' })
   }
 
   return (
@@ -23,7 +23,7 @@ const NewReview = (props) => {
         name="content"
         id="text-input"
         value={form.content}
-        placeholder="Add a Comment"
+        placeholder="Add a Review"
         onChange={handleChange}
       />
       <select name="rating" id="rating-select" onChange={handleChange}>
