@@ -2,42 +2,42 @@ import styles from './Discover.module.css'
 import { useState, useEffect } from 'react'
 import * as profileService from '../../services/profileService'
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
-import FeedFilter from '../../components/FeedFilter/FeedFilter'
+import DiscoverFilter from '../../components/DiscoverFilter/DiscoverFilter'
 
 const Discover = () => {
   const [profiles, setProfiles] = useState([])
-  const [selectedJourneys, setSelectedJourneys] = useState([])
+  const [filteredProfiles, setFilteredProfiles] = useState([])
  
   useEffect(() => {
     const fetchProfiles = async () => {
       const data = await profileService.getAllProfiles()
       setProfiles(data)
+      setFilteredProfiles(data)
     }
     fetchProfiles()
   }, [])
 
-  useEffect(() => {
-    setProfiles(profiles.filter(profile => profile.journeys.some(journey => selectedJourneys.includes(journey._id))))
-  }, [])
-
-  const handleJourneySelect = ({target}) => {
-    
-    setSelectedJourneys([target.name, ...selectedJourneys])
+  const handleFilter = ({target}) => {
+    setFilteredProfiles(target.value ? profiles.filter(profile => profile.journeys.some(journey => journey._id === target.value)) : profiles)
   }
 
-  const handleClickFilter = ({target}) => {
-    setProfiles(target.innerHTML === 'ASC' ? [...profiles.sort((a, b) => new Date(a.createdAt).valueOf() - new Date(b.createdAt).valueOf())] : [...profiles.sort((a, b) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf())])
+  const handleSort = ({target}) => {
+    setFilteredProfiles(target.innerHTML === 'ASC' ? [...filteredProfiles.sort((a, b) => new Date(a.createdAt).valueOf() - new Date(b.createdAt).valueOf())] : [...filteredProfiles.sort((a, b) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf())])
   }
-
 
   return (  
     <div className={styles.container}>
       <h1>Discover</h1>
-      <FeedFilter selectedJourneys={selectedJourneys} handleClickFilter={handleClickFilter} handleJourneySelect={handleJourneySelect}/>
+      <DiscoverFilter handleSort={handleSort} handleFilter={handleFilter}/>
       {profiles.length ?
-        profiles.map(profile =>
+        filteredProfiles.length ?
+        filteredProfiles.map(profile =>
           <ProfileCard key={profile._id} profile={profile} />
         )
+        :
+        <>
+          <div>No people on this journey yet...</div>
+        </>
       :
       <>
         <div>Loading profiles...</div>

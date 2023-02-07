@@ -2,7 +2,7 @@ import styles from './Feed.module.css'
 import * as postService from '../../services/postService'
 import { useState, useEffect } from 'react'
 import PostCard from '../PostCard/PostCard'
-import FeedFilter from '../FeedFilter/FeedFilter'
+import FeedFilter from '../DiscoverFilter/DiscoverFilter'
 
 const Feed = () => {
   const [posts, setPosts] = useState([])
