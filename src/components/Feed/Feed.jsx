@@ -18,7 +18,7 @@ const Feed = () => {
   return (  
     <div className={styles.container}>
       <h1>this is a feed</h1>
-      <FeedFilter />
+      {/* <FeedFilter /> */}
       {posts.map(post =>
         <PostCard key={post._id} post={post} />
       )}

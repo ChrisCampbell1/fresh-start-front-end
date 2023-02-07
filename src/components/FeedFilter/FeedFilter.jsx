@@ -33,8 +33,9 @@ const FeedFilter = ({ selectedJourneys, handleClickFilter, handleJourneySelect})
         </div>
         <select onChange={(evt) => handleJourneySelect(evt)}>
           <option>Filter by Journey</option>
-          {journeys.map(journey => (
-            <option key={journey._id} value={journey._id}>{journey.name}</option>
+          {journeys.length &&
+            journeys.map(journey => (
+              <option key={journey._id} value={journey._id}>{journey.name}</option>
           ))}
         </select>
       </div>

@@ -1,8 +1,16 @@
 .container {
   max-width: 100%;
   height: auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem;
 }
-image {
-  width: 100%;
-  height: auto;
+
+.container img {
+  width: 12rem;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 12rem;
 }
