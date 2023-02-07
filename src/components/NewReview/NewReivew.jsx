@@ -3,7 +3,7 @@ import styles from './NewReview.module.css'
 
 
 const NewReview = (props) => {
-  const [form, setForm] = useState({ content: '', rating : '' })
+  const [form, setForm] = useState({ content: '', rating : '0' })
 
   const handleChange = ({ target }) => {
     setForm({ ...form, [target.name]: target.value })
@@ -22,7 +22,7 @@ const NewReview = (props) => {
         type="text"
         name="content"
         id="text-input"
-        value={form.text}
+        value={form.content}
         placeholder="Add a Comment"
         onChange={handleChange}
       />

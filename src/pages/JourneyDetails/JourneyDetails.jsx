@@ -21,9 +21,16 @@ const JourneyDetails = (props) => {
   }
 
   const handleAddReview = async (reviewData) => {
-    const newReview = await journeyService.createReviews(id, reviewData)
+    const newReview = await journeyService.createReview(id, reviewData)
     setJourney({ ...journey, reviews: [...journey.reviews, newReview] })
   }
+
+  const handleDeleteReview = async (journeyId,reviewId) => {
+    await journeyService.deleteReview(journeyId, reviewId)
+    setJourney({ ...journey, reviews: journey.reviews.filter((c) => c._id !== reviewId) })
+  }
+
+
 
   useEffect(() => {
     const fetchJourney = async () => {
@@ -32,9 +39,8 @@ const JourneyDetails = (props) => {
     }
     fetchJourney()
   }, [id])
-
   if (!journey) return <Loading />
-  
+
   return (  
     <main className={styles.container}>
         <>
@@ -57,8 +63,9 @@ const JourneyDetails = (props) => {
           </div>
           {reviewsState ?
             journey.reviews && (
+
               <div>
-                  <JourneyReviews reviews={journey.reviews} user={props.user} />
+                  <JourneyReviews journeyId={journey._id}reviews={journey.reviews} user={props.user} handleDeleteReview={handleDeleteReview} />
               </div>
             )
           :
