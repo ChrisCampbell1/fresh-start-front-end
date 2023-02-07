@@ -82,7 +82,7 @@ const App = () => {
           path="/journeys"
           element={
             <ProtectedRoute user={user}>
-              <Journeys />
+              <Journeys user={user}/>
             </ProtectedRoute>
           }
         />
@@ -90,7 +90,7 @@ const App = () => {
             path="/journeys/:id"
             element={
               <ProtectedRoute user={user}>
-                <JourneyDetails />
+                <JourneyDetails user={user}/>
               </ProtectedRoute>
             }
           />
@@ -98,7 +98,7 @@ const App = () => {
           path="/journeys/new"
           element={
             <ProtectedRoute user={user}>
-              <NewJourney />
+              <NewJourney user={user}/>
             </ProtectedRoute>
           }
           />
@@ -106,7 +106,7 @@ const App = () => {
           path="/journeys/:id/edit"
           element={
             <ProtectedRoute user={user}>
-              <EditJourney />
+              <EditJourney user={user}/>
             </ProtectedRoute>
           }
           />

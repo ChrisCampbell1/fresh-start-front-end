@@ -23,7 +23,7 @@ const NewPost = (props) => {
   }
 
   const handleChangePhoto = (evt) => {
-    setPhotoData({photo: evt.target.files[0]})
+    setPhotoData(evt.target.files[0])
   }
 
   useEffect(() => {
@@ -32,14 +32,17 @@ const NewPost = (props) => {
       setJourneys(profile.journeys)
     }
     fetchJourneys()
-    console.log(journeys)
   }, [])
 
   const handleSubmit = async (evt) => {
     evt.preventDefault()
-    postService.create(form)
+    const newPost = await postService.create(form)
+    console.log(newPost, "new post")
+    await postService.addPostPhoto(photoData, newPost._id)
     navigate('/')
   }
+
+  
 
   return (  
     <main className={styles.container}>

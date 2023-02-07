@@ -1,4 +1,3 @@
-import styles from './PostStats.module.css'
 import LikesCounter from '../LikesCounter/LikesCounter'
 import CommentsCounter from '../CommentsCounter/CommentsCounter'
 

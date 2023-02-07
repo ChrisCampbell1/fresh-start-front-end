@@ -23,7 +23,7 @@ const show = async (id) => {
   }
 }
 
-const createReviews = async (id, reviewData) => {
+const createReview = async (id, reviewData) => {
   try {
     const res = await fetch(`${BASE_URL}/${id}/reviews`, {
       method: 'POST',
@@ -39,9 +39,24 @@ const createReviews = async (id, reviewData) => {
   }
 }
 
+const deleteReview = async (journeyId, reviewId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${journeyId}/reviews/${reviewId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 
 export {
   index,
   show,
-  createReviews,
+  createReview,
+  deleteReview,
 }
