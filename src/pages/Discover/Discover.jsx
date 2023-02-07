@@ -16,13 +16,13 @@ const Discover = () => {
     }
     fetchProfiles()
   }, [])
+  
+  const handleSort = ({target}) => {
+    setFilteredProfiles(target.innerHTML === 'ASC' ? [...filteredProfiles.sort((a, b) => new Date(a.createdAt).valueOf() - new Date(b.createdAt).valueOf())] : [...filteredProfiles.sort((a, b) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf())])
+  }
 
   const handleFilter = ({target}) => {
     setFilteredProfiles(target.value ? profiles.filter(profile => profile.journeys.some(journey => journey._id === target.value)) : profiles)
-  }
-
-  const handleSort = ({target}) => {
-    setFilteredProfiles(target.innerHTML === 'ASC' ? [...filteredProfiles.sort((a, b) => new Date(a.createdAt).valueOf() - new Date(b.createdAt).valueOf())] : [...filteredProfiles.sort((a, b) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf())])
   }
 
   return (  

@@ -2,7 +2,7 @@ import styles from './DiscoverFilter.module.css'
 import { useState, useEffect } from 'react'
 import * as journeyService from '../../services/journeyService'
 
-const FeedFilter = ({ handleSort, handleFilter }) => {
+const DiscoverFilter = ({ handleSort, handleFilter }) => {
   const [journeys, setJourneys] = useState([])
 
   useEffect(() => {
@@ -15,12 +15,12 @@ const FeedFilter = ({ handleSort, handleFilter }) => {
 
   return (  
     <div className={styles.container}>
-      <div className={styles.membershipSort}>
-        <div onClick={(evt) => handleSort(evt)}>ASC</div>
+      <div className={styles.sort}>
+        <div onClick={handleSort}>ASC</div>
         <div>Member Since</div>
-        <div onClick={(evt) => handleSort(evt)}>DESC</div>
+        <div onClick={handleSort}>DESC</div>
       </div>
-      <div className={styles.journeyFilter}>
+      <div className={styles.filter}>
           <select onChange={handleFilter}>
             <option value=''>Filter by Journey</option>
             {journeys.map(journey => (
@@ -32,4 +32,4 @@ const FeedFilter = ({ handleSort, handleFilter }) => {
   )
 }
 
-export default FeedFilter
+export default DiscoverFilter
