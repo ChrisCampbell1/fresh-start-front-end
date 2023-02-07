@@ -12,8 +12,8 @@ const JourneyDetails = (props) => {
   const { id } = useParams()
   const [journey, setJourney] = useState({})
   const [reviewsState, setReviewsState] = useState(true)
-  const [isSubscribed, setIsSubscribed] = useState(Boolean(localStorage.getItem('isSubscribed')) || false);
-
+  const [isSubscribed, setIsSubscribed] = useState(false)
+  //Section for handlers
   const handleReviewsClick = () => {
     setReviewsState(true)
   }
@@ -26,24 +26,21 @@ const JourneyDetails = (props) => {
     setJourney({ ...journey, reviews: [...journey.reviews, newReview] })
   }
 
-  const handleDeleteReview = async (journeyId,reviewId) => {
-    await journeyService.deleteReview(journeyId, reviewId)
+  const handleDeleteReview = async (id,reviewId) => {
+    await journeyService.deleteReview(id, reviewId)
     setJourney({ ...journey, reviews: journey.reviews.filter((c) => c._id !== reviewId) })
   }
 
   const handleSubscribe = async () => {
-    await journeyService.subscribe(id);
-    setIsSubscribed(true)
-    localStorage.setItem('isSubscribed', true)
-  };
-  
-  const handleUnsubscribe = async () => {
-    await journeyService.unsubscribe(id);
-    setIsSubscribed(false)
-    localStorage.setItem('isSubscribed', false)
-  };
-  
-
+    if (!isSubscribed) {
+      await journeyService.subscribe(journey._id);
+      setIsSubscribed(true);
+    } else {
+      await journeyService.unsubscribe(journey._id);
+      setIsSubscribed(false);
+    }
+  }
+  //Section for useEffect
   useEffect(() => {
     const fetchJourney = async () => {
       const data = await journeyService.show(id)
@@ -51,19 +48,24 @@ const JourneyDetails = (props) => {
     }
     fetchJourney()
   }, [id])
+  
+  useEffect(() => {
+    setIsSubscribed(
+      journey.subscribers && journey.subscribers.some(subscriber => subscriber._id === props.user.profile)
+    );
+  }, [journey.subscribers, props.user.profile]);
+  
+
+  //Loading page when journey is not loaded
   if (!journey) return <Loading />
 
   return (  
     <main className={styles.container}>
         <>
         <div>
-        {isSubscribed ? 
-          (
-            <button onClick={handleUnsubscribe}>Unsubscribe</button>
-          ) : 
-          (
-            <button onClick={handleSubscribe}>Subscribe</button>
-          )}
+        <button onClick={handleSubscribe}>
+          {isSubscribed ? "Unsubscribe" : "Subscribe"}
+        </button>
         </div>
           <h1>{journey.name}</h1>
           <div>
@@ -73,10 +75,10 @@ const JourneyDetails = (props) => {
             <p>{journey.description}</p>
           </div>
           <div>
-            <button onClick={() => handleReviewsClick()}>
+            <button onClick={handleReviewsClick}>
               Reviews
             </button>
-            <button onClick={() => handleSubscribersClick()}>
+            <button onClick={handleSubscribersClick}>
               Subscribers
             </button>
           </div>
