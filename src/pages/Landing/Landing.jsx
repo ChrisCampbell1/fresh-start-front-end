@@ -6,8 +6,6 @@ const Landing = ({ user }) => {
     <main className={styles.container}>
       {user ? 
       <>
-      <h1>Welcome, {user.name}</h1>
-      <h3>needs dynamic rendering based on following length</h3>
       <Feed />
       </>
       

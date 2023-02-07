@@ -4,7 +4,7 @@
   flex-direction: column;
   top: 0;
   background-color: black;
-  min-height: 108px;
+  /* min-height: 108px; */
   width: 100%;
   /* justify-content: center; */
 }

@@ -1,8 +1,11 @@
 import styles from './CommentsCounter.module.css'
+import Icon from '../Icon/Icon'
 
 const CommentsCounter = ({ post }) => {
   return (  
-    <p><strong>Comments:</strong> {post.comments.length}</p>
+    <div className={styles.container}>
+      <p><Icon category={'Comment'}/>{post.comments.length}</p>
+    </div>
   )
 }
 

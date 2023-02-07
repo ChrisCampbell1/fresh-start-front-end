@@ -1,8 +1,11 @@
+import styles from './DateCard.module.css'
+import Icon from "../Icon/Icon"
+
 const DateCard = ({ date }) => {
   const formattedDate = new Date(date).toLocaleDateString()
   return (  
-    <div>
-      <p><strong>Date Created:</strong> {formattedDate}</p>
+    <div className={styles.container}>
+      <p><Icon category={'Date'}/>{formattedDate}</p>
     </div>
   )
 }
