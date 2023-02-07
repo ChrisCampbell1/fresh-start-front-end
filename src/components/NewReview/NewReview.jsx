@@ -23,7 +23,7 @@ const NewReview = (props) => {
         name="content"
         id="text-input"
         value={form.content}
-        placeholder="Add a Comment"
+        placeholder="Add a Review"
         onChange={handleChange}
       />
       <select name="rating" id="rating-select" onChange={handleChange}>
