@@ -57,6 +57,7 @@ const JourneyDetails = (props) => {
           </div>
           {reviewsState ?
             journey.reviews && (
+
               <div>
                   <JourneyReviews reviews={journey.reviews} user={props.user} />
               </div>
