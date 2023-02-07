@@ -6,10 +6,6 @@
   text-align: center;
 }
 
-.container h2{
-  margin: 1rem;
-}
-
 .container a{
   color: black;
 }
@@ -24,10 +20,27 @@
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  max-height: 250px;
+  object-fit: cover;
 }
 
 .icon img{
   width: 2rem;
   height: 2rem;
   margin-bottom: 1rem;
+}
+
+.content {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.postType {
+  
+}
+
+.postType img{
+  height: 1rem;
+  width: 1rem;
+  margin-top: .5rem;
 }
