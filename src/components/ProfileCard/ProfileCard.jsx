@@ -5,6 +5,7 @@ import Icon from '../Icon/Icon'
 
 const ProfileCard = ({ profile }) => {
   const formattedDate = new Date(profile.createdAt).toLocaleDateString()
+  
   return (  
   <div className={styles.container}>
     <Link to={`/profiles/${profile._id}`} state={profile}>
