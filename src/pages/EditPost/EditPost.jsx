@@ -77,6 +77,7 @@ const EditPost = (props) => {
         <div>
           <label htmlFor='journey-input'>Journey</label>
           <select
+            required
             type='select'
             name='journey'
             id='journey-input'

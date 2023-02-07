@@ -3,14 +3,17 @@
   justify-content: center;
   align-items: center;
   flex-flow: column;
-  padding: .5rem;
   gap: .5rem;
 }
 
-.container * {
-  margin: 0;
-  padding: 0;
+.conatianer a {
+  color: black;
 }
+
+.conatianer p {
+  color: black;
+}
+
 .container ul {
   list-style: none;
 }
@@ -65,4 +68,5 @@
 
 .container .posts h4 {
   border-bottom: 1px solid gray;
+  padding-bottom: 1rem;
 }
