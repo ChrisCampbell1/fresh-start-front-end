@@ -39,9 +39,8 @@ const JourneyDetails = (props) => {
     }
     fetchJourney()
   }, [id])
-
   if (!journey) return <Loading />
-  
+
   return (  
     <main className={styles.container}>
         <>
@@ -66,7 +65,7 @@ const JourneyDetails = (props) => {
             journey.reviews && (
 
               <div>
-                  <JourneyReviews reviews={journey.reviews} user={props.user } handleDeleteReview={handleDeleteReview} />
+                  <JourneyReviews journeyId={journey._id}reviews={journey.reviews} user={props.user} handleDeleteReview={handleDeleteReview} />
               </div>
             )
           :

@@ -39,15 +39,15 @@ const createReview = async (id, reviewData) => {
   }
 }
 
-const deleteReview = async (id, reviewData) => {
+const deleteReview = async (journeyId, reviewId) => {
   try {
-    const res = await fetch(`${BASE_URL}/${id}/reviews`, {
+    const res = await fetch(`${BASE_URL}/${journeyId}/reviews/${reviewId}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`
       }
     })
-    return res.json()
+    return res
   } catch (error) {
     console.log(error)
   }
