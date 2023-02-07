@@ -12,7 +12,7 @@ const JourneyDetails = (props) => {
   const { id } = useParams()
   const [journey, setJourney] = useState({})
   const [reviewsState, setReviewsState] = useState(true)
-  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isSubscribed, setIsSubscribed] = useState(Boolean(localStorage.getItem('isSubscribed')) || false);
 
   const handleReviewsClick = () => {
     setReviewsState(true)
@@ -33,12 +33,14 @@ const JourneyDetails = (props) => {
 
   const handleSubscribe = async () => {
     await journeyService.subscribe(id);
-    setIsSubscribed(true);
+    setIsSubscribed(true)
+    localStorage.setItem('isSubscribed', true)
   };
   
   const handleUnsubscribe = async () => {
     await journeyService.unsubscribe(id);
-    setIsSubscribed(false);
+    setIsSubscribed(false)
+    localStorage.setItem('isSubscribed', false)
   };
   
 
