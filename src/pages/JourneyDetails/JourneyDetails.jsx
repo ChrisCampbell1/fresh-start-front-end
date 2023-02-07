@@ -18,7 +18,7 @@ const JourneyDetails = (props) => {
   const [subscriberProfiles, setsubscriberProfiles] = useState({})
   const [reviewsState, setReviewsState] = useState(true)
   const [isSubscribed, setIsSubscribed] = useState(false)
-  const navigate = useNavigate()
+
   //Section for handlers
   const handleReviewsClick = () => {
     setReviewsState(true)
@@ -46,7 +46,7 @@ const JourneyDetails = (props) => {
       await journeyService.unsubscribe(journey._id);
       setIsSubscribed(false)
     }
-    navigate(`/journeys/${journey._id}`)
+    
   }
   //Section for useEffect
   useEffect(() => {
@@ -55,7 +55,7 @@ const JourneyDetails = (props) => {
       setJourney(data)
     }
     fetchJourney()
-  }, [id])
+  }, [id, isSubscribed])
   
   useEffect(() => {
     setIsSubscribed(
@@ -74,7 +74,7 @@ const JourneyDetails = (props) => {
       }
     }
     fetchProfiles()
-  }, [journey,reviewsState])
+  }, [journey, reviewsState])
 
   //Loading page when journey is not loaded
   if (!journey) return <Loading />
