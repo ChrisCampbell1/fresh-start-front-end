@@ -35,7 +35,7 @@ const Discover = () => {
   return (  
     <div className={styles.container}>
       <h1>Discover</h1>
-      <FeedFilter selectedJourneys={selectedJourneys} handleClickFilter={handleClickFilter} handleJourneySelect={handleJourneySelect}/>
+      {/* <FeedFilter selectedJourneys={selectedJourneys} handleClickFilter={handleClickFilter} handleJourneySelect={handleJourneySelect}/> */}
       {profiles.length ?
         profiles.map(profile =>
           <ProfileCard key={profile._id} profile={profile} />
