@@ -1,6 +1,8 @@
 import styles from './JourneyDetails.module.css'
 import { useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
 
 import Loading from '../../components/Loading/Loading'
 import NewReview from '../../components/NewReview/NewReview'
@@ -16,6 +18,7 @@ const JourneyDetails = (props) => {
   const [subscriberProfiles, setsubscriberProfiles] = useState({})
   const [reviewsState, setReviewsState] = useState(true)
   const [isSubscribed, setIsSubscribed] = useState(false)
+
   //Section for handlers
   const handleReviewsClick = () => {
     setReviewsState(true)
@@ -35,13 +38,15 @@ const JourneyDetails = (props) => {
   }
 
   const handleSubscribe = async () => {
+
     if (!isSubscribed) {
       await journeyService.subscribe(journey._id);
-      setIsSubscribed(true);
+      setIsSubscribed(true)
     } else {
       await journeyService.unsubscribe(journey._id);
-      setIsSubscribed(false);
+      setIsSubscribed(false)
     }
+    
   }
   //Section for useEffect
   useEffect(() => {
@@ -50,13 +55,13 @@ const JourneyDetails = (props) => {
       setJourney(data)
     }
     fetchJourney()
-  }, [id])
+  }, [id, isSubscribed])
   
   useEffect(() => {
     setIsSubscribed(
       journey.subscribers && journey.subscribers.some(subscriber => subscriber._id === props.user.profile)
-    );
-  }, [journey.subscribers, props.user.profile]);
+    )
+  }, [journey.subscribers, props.user.profile])
   
   useEffect(() => {
     const fetchProfiles = async () => {
@@ -69,7 +74,7 @@ const JourneyDetails = (props) => {
       }
     }
     fetchProfiles()
-  }, [journey,reviewsState])
+  }, [journey, reviewsState])
 
   //Loading page when journey is not loaded
   if (!journey) return <Loading />
@@ -101,21 +106,23 @@ const JourneyDetails = (props) => {
             
           </div>
           {reviewsState ?
-            journey.reviews && (
-              
+            journey.reviews && journey.reviews.length > 0 ? (
               <div>
                 <h1>Add review</h1>
-                  < NewReview handleAddReview={handleAddReview}/>
-                  <JourneyReviews journeyId={journey._id}reviews={journey.reviews} user={props.user} handleDeleteReview={handleDeleteReview} />
+                <NewReview handleAddReview={handleAddReview}/>
+                <JourneyReviews journeyId={journey._id} reviews={journey.reviews} user={props.user} handleDeleteReview={handleDeleteReview} />
               </div>
-            )
-          :
-            subscriberProfiles && (
+            ) : (
+              <div>No reviews for this journey yet.</div>
+            ) :
+            subscriberProfiles && subscriberProfiles.length > 0 ? (
               <div>
                 {subscriberProfiles.map(profile => 
-                  < ProfileCard key={profile._id} profile={profile}/>
+                  <ProfileCard key={profile._id} profile={profile}/>
                 )}
               </div>
+            ) : (
+              <div>No subscriber for this journey yet.</div>
             )
           }
       </>
