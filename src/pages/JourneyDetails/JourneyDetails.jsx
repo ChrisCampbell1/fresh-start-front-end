@@ -3,14 +3,17 @@ import { useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import Loading from '../../components/Loading/Loading'
-import NewReview from '../../components/NewReview/NewReivew'
+import NewReview from '../../components/NewReview/NewReview'
 import JourneyReviews from '../../components/JourneyReviews/JourneyReviews'
 
 import * as journeyService from '../../services/journeyService'
+import * as profileService from '../../services/profileService'
+import ProfileCard from '../../components/ProfileCard/ProfileCard'
 
 const JourneyDetails = (props) => {
   const { id } = useParams()
   const [journey, setJourney] = useState({})
+  const [subscriberProfiles, setsubscriberProfiles] = useState({})
   const [reviewsState, setReviewsState] = useState(true)
   const [isSubscribed, setIsSubscribed] = useState(false)
   //Section for handlers
@@ -55,6 +58,18 @@ const JourneyDetails = (props) => {
     );
   }, [journey.subscribers, props.user.profile]);
   
+  useEffect(() => {
+    const fetchProfiles = async () => {
+      if (journey && !reviewsState) {
+        const data = await profileService.getAllProfiles()
+        const filteredData = data.filter(profile => journey.subscribers.some(sub => sub._id === profile._id))
+        setsubscriberProfiles(filteredData)
+      } else {
+        setsubscriberProfiles([])
+      }
+    }
+    fetchProfiles()
+  }, [journey,reviewsState])
 
   //Loading page when journey is not loaded
   if (!journey) return <Loading />
@@ -83,21 +98,22 @@ const JourneyDetails = (props) => {
             </button>
           </div>
           <div>
-            <h1>Add review</h1>
-            < NewReview handleAddReview={handleAddReview}/>
+            
           </div>
           {reviewsState ?
             journey.reviews && (
-
+              
               <div>
+                <h1>Add review</h1>
+                  < NewReview handleAddReview={handleAddReview}/>
                   <JourneyReviews journeyId={journey._id}reviews={journey.reviews} user={props.user} handleDeleteReview={handleDeleteReview} />
               </div>
             )
           :
-            journey.subscribers && (
+            subscriberProfiles && (
               <div>
-                {journey.subscribers.map(review => 
-                  <p>this is a subscriber</p>  
+                {subscriberProfiles.map(profile => 
+                  < ProfileCard key={profile._id} profile={profile}/>
                 )}
               </div>
             )
