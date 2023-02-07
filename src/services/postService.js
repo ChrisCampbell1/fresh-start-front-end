@@ -4,9 +4,10 @@ const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/posts`
 
 const index = async () => {
   try {
-    const res = await fetch(BASE_URL, {
+    const user = localStorage.token && {
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
-    })
+    }
+    const res = await fetch(BASE_URL, user)
     return res.json()
   } catch (error) {
     console.log(error)
