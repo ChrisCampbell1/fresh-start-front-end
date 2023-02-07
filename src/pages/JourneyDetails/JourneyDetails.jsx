@@ -115,7 +115,9 @@ const JourneyDetails = (props) => {
             ) :
             subscriberProfiles && subscriberProfiles.length > 0 ? (
               <div>
-                {subscriberProfiles.map(profile => 
+                {subscriberProfiles
+                .sort((a, b) => b.followers.length - a.followers.length)
+                .map(profile => 
                   <ProfileCard key={profile._id} profile={profile}/>
                 )}
               </div>
