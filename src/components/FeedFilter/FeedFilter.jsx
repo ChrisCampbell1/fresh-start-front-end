@@ -1,43 +1,30 @@
 import styles from './FeedFilter.module.css'
-import { useState, useEffect } from 'react'
-import * as journeyService from '../../services/journeyService'
+import { useState } from 'react'
 
+const FeedFilter = ({ handleSort, handleSearch, sortStatus }) => {
+  const [searchText, setSearchText] = useState('')
 
-// journeys
-
-
-const FeedFilter = ({ selectedJourneys, handleClickFilter, handleJourneySelect}) => {
-  const [journeys, setJourneys] = useState([])
-
-
-  useEffect(() => {
-    const fetchJourneys = async () => {
-      const data = await journeyService.index()
-      setJourneys(data)
-    }
-    fetchJourneys()
-  }, [])
+  const handleChange = ({ target }) => {
+    setSearchText(target.value)
+    handleSearch(target.value)
+  }
 
   return (  
     <div className={styles.container}>
-      <div className={styles.membershipSort}>
-        <span onClick={(evt) => handleClickFilter(evt)}>ASC</span>
-        <span>Member Since</span>
-        <span onClick={(evt) => handleClickFilter(evt)}>DESC</span>
+        <div className={styles.sort} onClick={handleSort}>
+          <div>likes</div>
+          {!sortStatus ?
+            <i className="fas fa-regular fa-sort"></i>
+            :
+            sortStatus === 1 ?
+              <i className="fas fa-solid fa-sort-down"></i>
+              :
+              <i className="fas fa-solid fa-sort-up"></i>       
+          }
       </div>
-      <div className={styles.journeyFilter}>
-        <div>
-          {selectedJourneys.map(selectedJourney => (
-            <div key={selectedJourney}>{journeys.find(journey => journey._id === selectedJourney).name}</div>
-          ))}
-        </div>
-        <select onChange={(evt) => handleJourneySelect(evt)}>
-          <option>Filter by Journey</option>
-          {journeys.length &&
-            journeys.map(journey => (
-              <option key={journey._id} value={journey._id}>{journey.name}</option>
-          ))}
-        </select>
+      <div className={styles.search}>
+      <i className="fas fa-solid fa-magnifying-glass fa-s"></i>
+          <input type="search" value={searchText} onChange={handleChange} placeholder="search by author..." />
       </div>
     </div>
   )
