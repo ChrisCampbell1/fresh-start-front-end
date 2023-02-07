@@ -22,10 +22,8 @@ const NavBar = ({ user, handleLogout }) => {
       <li><Link onClick={() => handleNavBtnClick()} to="/">Feed</Link></li>
       <li><Link onClick={() => handleNavBtnClick()} to="/discover">Discover</Link></li>
       <li><Link onClick={() => handleNavBtnClick()} to="/posts/new">New Post</Link></li>
-      <li><Link onClick={() => handleNavBtnClick()} to="/discover">Discover</Link></li>
       <li><Link onClick={() => handleNavBtnClick()} to="/journeys">Journeys</Link></li>
       <li><Link onClick={() => handleNavBtnClick()} to={`/profiles/${user?.profile}`}>My Profile</Link></li>
-      <li><Link onClick={() => handleNavBtnClick()} to="/profiles">Profiles</Link></li>
       <li><Link  to="" onClick={handleLogout}>LOG OUT</Link></li>
       <li><Link onClick={() => handleNavBtnClick()} to="/change-password">Change Password</Link></li>
   </ul>
