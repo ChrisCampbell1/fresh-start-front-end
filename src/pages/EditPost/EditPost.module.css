@@ -69,3 +69,8 @@ select {
   color: black;
   font-weight: bold;
 }
+
+#edit {
+  background-color: rgb(1, 84, 1);
+  font-weight: bold;
+}

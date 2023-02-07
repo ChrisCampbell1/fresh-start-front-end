@@ -112,7 +112,7 @@ const EditPost = (props) => {
           />
         </div>
         <div>
-          <button>Edit Post</button>
+          <button id={styles.edit}>Edit Post</button>
         </div>
       </form>
       <button id={styles.delete} onClick={() => handleDeletePost()}>Delete Post</button>
