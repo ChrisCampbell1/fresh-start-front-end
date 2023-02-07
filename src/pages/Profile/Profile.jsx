@@ -25,16 +25,16 @@ const Profile = () => {
     <main className={styles.container}>
       {profile._id ? 
         <>
+          <h1>{profile.name}</h1>
           <img src={profile.photo} alt={profile.name} />
-          <h3>{profile.name}</h3>
           <section className={styles.stats}>
               <ul>
                 <li>
-                  <Icon category="Fitness"/>
+                  <Icon category="Follower"/>
                   <span>followers: {profile.followers.length}</span>
                 </li>
                 <li>
-                  <Icon category="Food"/>
+                  <Icon category="Following"/>
                   <span>following: {profile.following.length}</span>
                 </li>
                 <li>

@@ -7,6 +7,7 @@ import comment from '../../assets/icons/comment.svg'
 import follower from '../../assets/icons/follower.svg'
 import follow from '../../assets/icons/follow.svg'
 import unfollow from '../../assets/icons/unfollow.svg'
+import following from '../../assets/icons/following.svg'
 
 const Icon = ({ category }) => {
   const icons = {
@@ -19,6 +20,7 @@ const Icon = ({ category }) => {
     Follower: follower,
     Follow: follow,
     Unfollow: unfollow,
+    Following: following
   }
   return (  
     <img className='icon' src={icons[category]} alt={`a ${category} icon`} />
