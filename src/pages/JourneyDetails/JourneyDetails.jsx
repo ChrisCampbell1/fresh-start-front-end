@@ -1,8 +1,6 @@
 import styles from './JourneyDetails.module.css'
 import { useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
-
 
 import Loading from '../../components/Loading/Loading'
 import NewReview from '../../components/NewReview/NewReview'

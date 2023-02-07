@@ -12,7 +12,7 @@ const NewReview = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.handleAddReview(form)
-    setForm({ content: '', rating : '' })
+    setForm({ content: '', rating : '0' })
   }
 
   return (
