@@ -55,9 +55,11 @@ const JourneyDetails = (props) => {
     <main className={styles.container}>
         <>
         <div>
-        {isSubscribed ? (
+        {isSubscribed ? 
+          (
             <button onClick={handleUnsubscribe}>Unsubscribe</button>
-          ) : (
+          ) : 
+          (
             <button onClick={handleSubscribe}>Subscribe</button>
           )}
         </div>

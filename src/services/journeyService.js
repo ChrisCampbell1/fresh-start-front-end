@@ -53,17 +53,31 @@ const deleteReview = async (journeyId, reviewId) => {
   }
 }
 
-const subscribe = async () => {
+const subscribe = async (journeyId) => {
   try {
-    
+    const res = await fetch(`${BASE_URL}/${journeyId}/subscribers`, {
+      method: 'POST',
+      headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'Content-Type': 'application/json'
+      }
+      })
+      return res
   } catch (error) {
-    
+    console.log(error)
   }
 }
 
-const unsubscribe = async () => {
+const unsubscribe = async (journeyId) => {
   try {
-    
+    const res = await fetch(`${BASE_URL}/${journeyId}/subscribers`, {
+      method: 'DELETE',
+      headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'Content-Type': 'application/json'
+      }
+      })
+      return res
   } catch (error) {
     
   }
@@ -76,5 +90,5 @@ export {
   createReview,
   deleteReview,
   subscribe,
-  unsubscribe.
+  unsubscribe,
 }
