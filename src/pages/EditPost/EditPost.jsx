@@ -46,62 +46,76 @@ const EditPost = (props) => {
     <main className={styles.container}>
       <h1>Edit Post</h1>
       <form autoComplete='off' onSubmit={handleSumbit}>
-        <label htmlFor='title-input'>Title</label>
-        <input
-          required
-          type='text'
-          name='title'
-          id='title-input'
-          value={form.title}
-          placeholder='title'
-          onChange={handleChange}
-        />
-        <label htmlFor='category-input'>Category</label>
-        <select
-          required
-          type='select'
-          name='category'
-          id='cateogry-input'
-          value={form.category}
-          onChange={handleChange}
-        >
-          <option value='Food'>Food</option>
-          <option value='Fitness'>Fitness</option>
-          <option value='BlogEntry'>Blog Entry</option>
-        </select>
-        <label htmlFor='journey-input'>Journey</label>
-        <select
-          type='select'
-          name='journey'
-          id='journey-input'
-          value={form.journey}
-          onChange={handleChange}
-        >
-          <option value="">Select Journey</option>
-          {journeys.map(journey => 
-            <option key={journey._id} value={journey._id}>{journey.name}</option>  
-          )}
-        </select>
-        <label htmlFor='content-input'>Post</label>
-        <input
-          required
-          type='textarea'
-          name='content'
-          id='content-input'
-          value={form.content}
-          placeholder='Enter your post here'
-          onChange={handleChange}
-        />
-        <label htmlFor="photo-input">Add a Photo</label>
-        <input
-          type='file'
-          name='photo'
-          id='photo-input'
-          onChange={handleChangePhoto}
-        />
-        <button>Edit Post</button>
+        <div>
+          <label htmlFor='title-input'>Title</label>
+          <textarea
+            required
+            rows={1}
+            cols={25}
+            name='title'
+            id='title-input'
+            value={form.title}
+            placeholder='title'
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor='category-input'>Category</label>
+          <select
+            required
+            type='select'
+            name='category'
+            id='cateogry-input'
+            value={form.category}
+            onChange={handleChange}
+          >
+            <option value='Food'>Food</option>
+            <option value='Fitness'>Fitness</option>
+            <option value='BlogEntry'>Blog Entry</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor='journey-input'>Journey</label>
+          <select
+            type='select'
+            name='journey'
+            id='journey-input'
+            value={form.journey}
+            onChange={handleChange}
+          >
+            <option value="">Select Journey</option>
+            {journeys.map(journey => 
+              <option key={journey._id} value={journey._id}>{journey.name}</option>  
+            )}
+          </select>
+        </div>
+        <div className={styles.content}>
+          <label htmlFor='content-input'>Post</label>
+          <textarea
+            required
+            rows={5}
+            cols={30}
+            name='content'
+            id='content-input'
+            value={form.content}
+            placeholder='Enter your post here'
+            onChange={handleChange}
+          />
+        </div>
+        <div className={styles.file}>
+          <label htmlFor="photo-input" className={styles.photoInput}>Add a Photo</label>
+          <input
+            type='file'
+            name='photo'
+            id='photo-input'
+            onChange={handleChangePhoto}
+          />
+        </div>
+        <div>
+          <button id={styles.edit}>Edit Post</button>
+        </div>
       </form>
-      <button onClick={() => handleDeletePost()}>Delete Post</button>
+      <button id={styles.delete} onClick={() => handleDeletePost()}>Delete Post</button>
     </main>
   )
 }

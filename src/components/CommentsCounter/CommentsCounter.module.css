@@ -1,9 +1,19 @@
 .container img {
-  width: 2rem;
-  height: 2rem;
+  width: 1rem;
+  height: 1rem;
   margin-right: 1rem;
 }
 
 .container {
   margin-right: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.container p {
+  font-size: 1rem;
+  margin-bottom: 0rem;
+  margin-top: 1rem;
 }

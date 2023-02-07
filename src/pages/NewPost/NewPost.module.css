@@ -1,3 +1,61 @@
 .container {
-  
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.container div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.container label {
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
+}
+
+.container button {
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  height: 2rem;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 1rem;
+}
+
+.photoInput {
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  padding: .5rem 1rem;
+  border-radius: 2rem;
+  background-color: black;
+  color: white;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.file label {
+  font-size: 1rem;
+}
+
+textarea {
+  border-radius: .25rem;
+  font-size: 1rem;
+}
+
+select {
+  background-color: black;
+  color: white;
+  border-radius: 2rem;
+  padding: .25rem;
+  font-size: 1rem;
 }
