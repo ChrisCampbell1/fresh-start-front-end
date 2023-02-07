@@ -7,9 +7,9 @@ import PostStats from '../../components/PostStats/PostStats'
 
 
 const PostDetails = (props) => {
-  const { id } = useParams()
-  console.log(id)
   const [post, setPost] = useState({})
+  
+  const { id } = useParams()
 
   useEffect(() => {
     const fetchPost = async () => {
