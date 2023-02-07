@@ -6,6 +6,7 @@ const Landing = ({ user }) => {
     <main className={styles.container}>
       {user ? 
       <>
+      <h1>Feed</h1>
       <Feed />
       </>
       

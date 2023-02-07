@@ -4,6 +4,9 @@ import thought from '../../assets/icons/thought.svg'
 import date from '../../assets/icons/date.svg'
 import like from '../../assets/icons/like.svg'
 import comment from '../../assets/icons/comment.svg'
+import follower from '../../assets/icons/follower.svg'
+import follow from '../../assets/icons/follow.svg'
+import unfollow from '../../assets/icons/unfollow.svg'
 
 const Icon = ({ category }) => {
   const icons = {
@@ -12,7 +15,10 @@ const Icon = ({ category }) => {
     BlogEntry: thought,
     Date: date,
     Like: like,
-    Comment: comment
+    Comment: comment,
+    Follower: follower,
+    Follow: follow,
+    Unfollow: unfollow,
   }
   return (  
     <img className='icon' src={icons[category]} alt={`a ${category} icon`} />
