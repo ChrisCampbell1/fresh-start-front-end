@@ -53,10 +53,28 @@ const deleteReview = async (journeyId, reviewId) => {
   }
 }
 
+const subscribe = async () => {
+  try {
+    
+  } catch (error) {
+    
+  }
+}
+
+const unsubscribe = async () => {
+  try {
+    
+  } catch (error) {
+    
+  }
+}
+
 
 export {
   index,
   show,
   createReview,
   deleteReview,
+  subscribe,
+  unsubscribe.
 }

@@ -12,6 +12,7 @@ const JourneyDetails = (props) => {
   const { id } = useParams()
   const [journey, setJourney] = useState({})
   const [reviewsState, setReviewsState] = useState(true)
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
   const handleReviewsClick = () => {
     setReviewsState(true)
@@ -30,7 +31,16 @@ const JourneyDetails = (props) => {
     setJourney({ ...journey, reviews: journey.reviews.filter((c) => c._id !== reviewId) })
   }
 
-
+  const handleSubscribe = async () => {
+    await journeyService.subscribe(id);
+    setIsSubscribed(true);
+  };
+  
+  const handleUnsubscribe = async () => {
+    await journeyService.unsubscribe(id);
+    setIsSubscribed(false);
+  };
+  
 
   useEffect(() => {
     const fetchJourney = async () => {
@@ -44,11 +54,20 @@ const JourneyDetails = (props) => {
   return (  
     <main className={styles.container}>
         <>
+        <div>
+        {isSubscribed ? (
+            <button onClick={handleUnsubscribe}>Unsubscribe</button>
+          ) : (
+            <button onClick={handleSubscribe}>Subscribe</button>
+          )}
+        </div>
           <h1>{journey.name}</h1>
           <div>
             <img src= {journey.photo} alt="Journey Cover" />
           </div>
-          <p>{journey.description}</p>
+          <div>
+            <p>{journey.description}</p>
+          </div>
           <div>
             <button onClick={() => handleReviewsClick()}>
               Reviews
@@ -77,7 +96,7 @@ const JourneyDetails = (props) => {
               </div>
             )
           }
-        </>
+      </>
     </main>
   )
 }
