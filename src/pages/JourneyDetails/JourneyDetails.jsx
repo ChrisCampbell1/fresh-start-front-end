@@ -98,13 +98,14 @@ const JourneyDetails = (props) => {
             </button>
           </div>
           <div>
-            <h1>Add review</h1>
-            < NewReview handleAddReview={handleAddReview}/>
+            
           </div>
           {reviewsState ?
             journey.reviews && (
-
+              
               <div>
+                <h1>Add review</h1>
+                  < NewReview handleAddReview={handleAddReview}/>
                   <JourneyReviews journeyId={journey._id}reviews={journey.reviews} user={props.user} handleDeleteReview={handleDeleteReview} />
               </div>
             )
@@ -112,8 +113,7 @@ const JourneyDetails = (props) => {
             subscriberProfiles && (
               <div>
                 {subscriberProfiles.map(profile => 
-                console.log(profile)
-                  // < ProfileCard key={profile._id} profile={profile}/>
+                  < ProfileCard key={profile._id} profile={profile}/>
                 )}
               </div>
             )
