@@ -23,9 +23,7 @@ const NewPost = (props) => {
   }
 
   const handleChangePhoto = (evt) => {
-    console.log(evt)
     setPhotoData(evt.target.files[0])
-    console.log(photoData, "photo data")
   }
 
   useEffect(() => {

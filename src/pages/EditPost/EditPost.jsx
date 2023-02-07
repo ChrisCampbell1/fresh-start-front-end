@@ -27,11 +27,13 @@ const EditPost = (props) => {
   }
 
   const handleChangePhoto = (evt) => {
-    setPhotoData({photo: evt.target.files[0]})
+    setPhotoData(evt.target.files[0])
   }
 
-  const handleSumbit = () => {
-    postService.update(form, post._id)
+  const handleSumbit = async (evt) => {
+    evt.preventDefault()
+    await postService.update(form, post._id)
+    await postService.addPostPhoto(photoData, post._id)
     navigate(`/posts/${post._id}`)
   }
 
