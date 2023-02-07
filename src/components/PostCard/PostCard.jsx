@@ -8,11 +8,11 @@ const PostCard = ({ post }) => {
   return (  
   <div className={styles.container}>
     <Link to={`/posts/${post._id}`} state={post}>
-      <h2>{post.title}</h2>
+      <div className={styles.icon}>
+        <h2>{post.title}</h2>
+        <Icon category={post.category}/>
+      </div>
     </Link>
-    <div className={styles.icon}>
-      <Icon category={post.category}/>
-    </div>
     <Link to={`/posts/${post._id}`} state={post}>
       <img className={styles.postPhoto} src={post.photo} alt={post.title} />
     </Link>

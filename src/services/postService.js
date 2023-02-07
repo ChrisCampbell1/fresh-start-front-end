@@ -40,8 +40,10 @@ const create = async (form) => {
   }
 }
 
-  async function addPostPhoto(photoData, postId) {
-    console.log(photoData);
+  async function addPostPhoto(photo, postId) {
+    console.log("add post photo ran");
+    const photoData = new FormData()
+    photoData.append('photo', photo)
     const res = await fetch(`${BASE_URL}/${postId}/add-photo`, {
       method: 'PUT',
       headers: {
