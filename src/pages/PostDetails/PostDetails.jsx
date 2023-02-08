@@ -61,6 +61,11 @@ const PostDetails = ({user}) => {
     }
   }
 
+  const handleDeleteComment = async ({ target }) => {
+    await postService.deleteComment(post._id, target.id)
+    setPost({...post, comments: post.comments.filter(comment => comment._id !== target.id)})
+  }
+
   return (  
     <main className={styles.container}>
       {post._id ?
@@ -76,7 +81,7 @@ const PostDetails = ({user}) => {
         <p>{post.content}</p>
         <PostStats post={post} handleLike={handleLike} liked={liked} />
         <AddComment profile={profile} handleSubmit={handleSubmit} content={content} handleCommentContentChange={handleCommentContentChange} />
-        <CommentsList comments={post.comments} />
+        <CommentsList comments={post.comments} user={user} handleDeleteComment={handleDeleteComment} />
       </>
       :
       <>

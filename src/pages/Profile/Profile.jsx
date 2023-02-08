@@ -78,7 +78,7 @@ const Profile = (props) => {
             <h4>Recent Posts</h4>
               {profile.posts.length ?
                 profile.posts.slice(0).reverse().map(post => (
-                  <PostCard key={post._id} post={post} />
+                  <PostCard key={post._id} post={post} user={props.user} />
                 ))
                 :
                 <li>No posts yet...</li>

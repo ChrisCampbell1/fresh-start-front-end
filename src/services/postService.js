@@ -128,6 +128,20 @@ const create = async (form) => {
     }
   }
 
+  const deleteComment = async (postId, commentId) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${postId}/comments/${commentId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${tokenService.getToken()}`,
+        },
+      })
+      return res.json()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 export {
   index,
   show,
@@ -138,4 +152,5 @@ export {
   like,
   unlike,
   addComment,
+  deleteComment,
 }
