@@ -78,40 +78,20 @@ const JourneyDetails = (props) => {
 
   return (  
     <main className={styles.container}>
-        <>
-        <div>
-          <button id={styles.subscribe} onClick={handleSubscribe}>
-            {isSubscribed ? "Unsubscribe" : "Subscribe"}
-          </button>
+      <div className={styles.journeyCard}>
+        <div className={styles.hero}>
+          <img src={journey.photo} alt="Journey Cover" />
+          <div className={styles.content}>
+            <h1>{journey.name}</h1>
+            <button onClick={handleSubscribe}>{isSubscribed ? "Unsubscribe" : "Subscribe"}</button>
+          </div>
         </div>
-        <h1>{journey.name}</h1>
-        <div>
-          <img src= {journey.photo} alt="Journey Cover" />
-        </div>
-        <div className={styles.description}>
-          <p>{journey.description}</p>
-        </div>
-        <div className={styles.tabs}>
-          {reviewsState ?
-          <>
-            <button id={styles.active} onClick={handleReviewsClick}>
-              Reviews
-            </button>
-            <button id={styles.inactive} onClick={handleSubscribersClick}>
-              Subscribers
-            </button>
-          </>
-          :
-          <>
-            <button id={styles.inactive} onClick={handleReviewsClick}>
-              Reviews
-            </button>
-            <button id={styles.active} onClick={handleSubscribersClick}>
-              Subscribers
-            </button>
-          </>
-          }
-        </div>
+        <p>{journey.description}</p>
+      </div>
+      <div className={styles.tabs}>
+          <button id={reviewsState ? styles.active : styles.inactive} onClick={handleReviewsClick}>Reviews</button>
+          <button id={reviewsState ? styles.inactive : styles.active} onClick={handleSubscribersClick}>Subscribers</button>
+      </div>
         {reviewsState ?
           journey.reviews && journey.reviews.length > 0 ? (
             <div>
@@ -131,10 +111,9 @@ const JourneyDetails = (props) => {
               )}
             </div>
           ) : (
-            <div>No subscriber for this journey yet.</div>
+            <div>No subscriber for this journey yet...</div>
           )
         }
-      </>
     </main>
   )
 }

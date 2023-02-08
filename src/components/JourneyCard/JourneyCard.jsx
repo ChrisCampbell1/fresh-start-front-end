@@ -7,7 +7,9 @@ const JourneyCard = ({ journey }) => {
   <div className={styles.container}>
     <div className={styles.hero}>
       <Link to={`/journeys/${journey._id}`} state={journey}>
-        <h1>{journey.name}</h1>
+        <div className={styles.title}>
+          <h1>{journey.name}</h1>
+        </div>
         <img className={styles.cardPhoto} src={journey.photo} alt={journey.name} />
       </Link>
     </div>
