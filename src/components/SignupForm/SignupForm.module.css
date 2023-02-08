@@ -1,9 +1,6 @@
 .container {
   display: flex;
-  /* flex-flow: column nowrap; */
   flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
   margin-bottom: 50px;
   width: 100%;
   padding-left: 2rem;
