@@ -10,7 +10,7 @@ const EditPost = (props) => {
   const location = useLocation()
   const { post } = location.state
   const [form, setForm] = useState(post)
-  const [photoData, setPhotoData] = useState({})
+  const [photoData, setPhotoData] = useState(null)
   const [journeys, setJourneys] = useState([])
 
   useEffect(() => {
@@ -19,7 +19,6 @@ const EditPost = (props) => {
       setJourneys(profile.journeys)
     }
     fetchJourneys()
-    console.log(journeys)
   }, [])
 
   const handleChange = ({ target }) => {
@@ -45,12 +44,12 @@ const EditPost = (props) => {
   return (  
     <main className={styles.container}>
       <h1>Edit Post</h1>
-      <form autoComplete='off' onSubmit={handleSumbit}>
-        <div>
+      <form className={styles.form} autoComplete='off' onSubmit={handleSumbit}>
+        <div className={styles.inputContainer}>
           <label htmlFor='title-input'>Title</label>
           <textarea
             required
-            rows={1}
+            rows={2}
             cols={25}
             name='title'
             id='title-input'
@@ -59,9 +58,10 @@ const EditPost = (props) => {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className={styles.inputContainer}>
           <label htmlFor='category-input'>Category</label>
           <select
+            className={styles.category}
             required
             type='select'
             name='category'
@@ -74,9 +74,10 @@ const EditPost = (props) => {
             <option value='BlogEntry'>Blog Entry</option>
           </select>
         </div>
-        <div>
+        <div className={styles.inputContainer}>
           <label htmlFor='journey-input'>Journey</label>
           <select
+            className={styles.journey}
             required
             type='select'
             name='journey'
@@ -84,13 +85,13 @@ const EditPost = (props) => {
             value={form.journey}
             onChange={handleChange}
           >
-            <option value="">Select Journey</option>
+            <option value={form.journey.id}>{form.journey.name}</option>
             {journeys.map(journey => 
               <option key={journey._id} value={journey._id}>{journey.name}</option>  
             )}
           </select>
         </div>
-        <div className={styles.content}>
+        <div className={styles.inputContainer}>
           <label htmlFor='content-input'>Post</label>
           <textarea
             required
@@ -103,8 +104,12 @@ const EditPost = (props) => {
             onChange={handleChange}
           />
         </div>
-        <div className={styles.file}>
-          <label htmlFor="photo-input" className={styles.photoInput}>Add a Photo</label>
+        <div className={styles.inputContainer}>
+          {photoData ?
+            <label htmlFor="photo-input" className={styles.photoInput}>Photo Added</label>
+              :
+              <label htmlFor="photo-input" className={styles.photoInput}>Edit Photo</label>
+            }
           <input
             type='file'
             name='photo'
@@ -116,7 +121,9 @@ const EditPost = (props) => {
           <button id={styles.edit}>Edit Post</button>
         </div>
       </form>
-      <button id={styles.delete} onClick={() => handleDeletePost()}>Delete Post</button>
+      <div className={styles.delete}>
+        <button id={styles.delete} onClick={() => handleDeletePost()}>Delete Post</button>
+      </div>
     </main>
   )
 }
