@@ -81,50 +81,63 @@ const JourneyDetails = (props) => {
     <main className={styles.container}>
         <>
         <div>
-        <button onClick={handleSubscribe}>
-          {isSubscribed ? "Unsubscribe" : "Subscribe"}
-        </button>
+          <button id={styles.subscribe} onClick={handleSubscribe}>
+            {isSubscribed ? "Unsubscribe" : "Subscribe"}
+          </button>
         </div>
-          <h1>{journey.name}</h1>
-          <div>
-            <img src= {journey.photo} alt="Journey Cover" />
-          </div>
-          <div>
-            <p>{journey.description}</p>
-          </div>
-          <div>
-            <button onClick={handleReviewsClick}>
+        <h1>{journey.name}</h1>
+        <div>
+          <img src= {journey.photo} alt="Journey Cover" />
+        </div>
+        <div className={styles.description}>
+          <p>{journey.description}</p>
+        </div>
+        <div className={styles.tabs}>
+          {reviewsState ?
+          <>
+            <button id={styles.active} onClick={handleReviewsClick}>
               Reviews
             </button>
-            <button onClick={handleSubscribersClick}>
+            <button id={styles.inactive} onClick={handleSubscribersClick}>
               Subscribers
             </button>
-          </div>
-          <div>
-            
-          </div>
-          {reviewsState ?
-            journey.reviews && journey.reviews.length > 0 ? (
-              <div>
-                <h1>Add review</h1>
-                <NewReview handleAddReview={handleAddReview}/>
-                <JourneyReviews journeyId={journey._id} reviews={journey.reviews} user={props.user} handleDeleteReview={handleDeleteReview} />
-              </div>
-            ) : (
-              <div>No reviews for this journey yet.</div>
-            ) :
-            subscriberProfiles && subscriberProfiles.length > 0 ? (
-              <div>
-                {subscriberProfiles
-                .sort((a, b) => b.followers.length - a.followers.length)
-                .map(profile => 
-                  <ProfileCard key={profile._id} profile={profile}/>
-                )}
-              </div>
-            ) : (
-              <div>No subscriber for this journey yet.</div>
-            )
+          </>
+          :
+          <>
+            <button id={styles.inactive} onClick={handleReviewsClick}>
+              Reviews
+            </button>
+            <button id={styles.active} onClick={handleSubscribersClick}>
+              Subscribers
+            </button>
+          </>
           }
+        </div>
+        <div>
+          
+        </div>
+        {reviewsState ?
+          journey.reviews && journey.reviews.length > 0 ? (
+            <div>
+              <h1>Add review</h1>
+              <NewReview handleAddReview={handleAddReview}/>
+              <JourneyReviews journeyId={journey._id} reviews={journey.reviews} user={props.user} handleDeleteReview={handleDeleteReview} />
+            </div>
+          ) : (
+            <div>No reviews for this journey yet.</div>
+          ) :
+          subscriberProfiles && subscriberProfiles.length > 0 ? (
+            <div>
+              {subscriberProfiles
+              .sort((a, b) => b.followers.length - a.followers.length)
+              .map(profile => 
+                <ProfileCard key={profile._id} profile={profile}/>
+              )}
+            </div>
+          ) : (
+            <div>No subscriber for this journey yet.</div>
+          )
+        }
       </>
     </main>
   )
