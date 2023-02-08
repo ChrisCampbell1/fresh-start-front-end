@@ -9,8 +9,9 @@ import PostCard from '../../components/PostCard/PostCard'
 import defaultProfilePhoto from '../../assets/profile.png'
 
 
-const Profile = () => {
+const Profile = (props) => {
   const [profile, setProfile] = useState({})
+  const [isFollowing, setIsFollowing] = useState(false);
 
   const { profileId } = useParams()
 
@@ -21,12 +22,20 @@ const Profile = () => {
     }
     fetchProfile(profileId)
   }, [profileId])
-
+  //Section for handlers
+  console.log(profileId)
   return (  
     <main className={styles.container}>
       {profile._id ? 
         <>
           <h1>{profile.name}</h1>
+          {
+            profileId !== props.user.profile ?
+            <button>
+              Follow
+            </button>
+            : null
+          }
           <img className={styles.profilePhoto} src={profile.photo ? profile.photo : defaultProfilePhoto} alt={profile.name} />
           <section className={styles.stats}>
               <ul>
