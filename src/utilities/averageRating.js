@@ -6,7 +6,9 @@ const averageRating = (arr) => {
   arr.forEach(review => {
     sum = sum + review.rating
   })
-  return sum / arr.length
+  sum = sum / arr.length
+  let rounded = Math.round(sum * 10) / 10
+  return rounded
 }
 
 export {averageRating}

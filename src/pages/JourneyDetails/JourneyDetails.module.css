@@ -5,12 +5,57 @@
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  padding: .5rem;
+  padding-top: 1rem;
 }
 
 .container img {
-  width: 12rem;
-  height: 12rem;
+  width: 100%;
+  max-height: 300px;
   object-fit: cover;
-  border-radius: 12rem;
+}
+
+.description p {
+  margin: 1rem;
+}
+
+#subscribe {
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  height: 2rem;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 1rem;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  height: 3rem;
+  width: 100%;
+}
+
+.tabs button {
+  height: 100%;
+  width: 50%;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 1.25rem;
+}
+
+#active{
+  background-color: rgb(83, 83, 83);
+  font-weight: bold;
+}
+
+#inactive{
+  background-color: black;
+}
+
+h4 {
+  margin-left: 1rem;
 }

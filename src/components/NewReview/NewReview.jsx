@@ -1,5 +1,6 @@
 import { useState } from "react"
 import styles from './NewReview.module.css'
+import Icon from "../Icon/Icon"
 
 
 const NewReview = (props) => {
@@ -19,6 +20,7 @@ const NewReview = (props) => {
     <form className={styles.container} onSubmit={handleSubmit}>
       <textarea
         required
+        rows={5}
         type="text"
         name="content"
         id="text-input"
@@ -27,12 +29,11 @@ const NewReview = (props) => {
         onChange={handleChange}
       />
       <select name="rating" id="rating-select" onChange={handleChange}>
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
         <option value="5">5</option>
+        <option value="4">4</option>
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
       </select>
       <button type="submit">Submit</button>
     </form>
