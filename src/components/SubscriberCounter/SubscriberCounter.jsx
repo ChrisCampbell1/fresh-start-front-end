@@ -1,9 +1,11 @@
 import styles from './SubscriberCounter.module.css'
-import Icon from '../Icon/Icon'
 
 const SubscriberCounter = ({ journey }) => {
-  return (  
-    <p><Icon category={"Follower"}/> {journey.subscribers.length}</p>
+  return (
+    <div  className={styles.container}>
+      <i className="fas fa-solid fa-users"></i>
+      <p>{journey.subscribers.length}</p>
+    </div>
   )
 }
 

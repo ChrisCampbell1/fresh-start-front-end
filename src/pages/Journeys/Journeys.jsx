@@ -30,7 +30,7 @@ const Journeys = () => {
     <main className={styles.container}>
       <div className={styles.search}>
         <i className="fas fa-solid fa-magnifying-glass fa-s"></i>
-        <input type="search" value={searchText} onChange={handleChange} placeholder="search by name..." />
+        <input type="search" value={searchText} onChange={handleChange} placeholder="search journeys..." />
       </div>
       {searchedJourneys.map(journey => 
         <JourneyCard key={journey._id} journey={journey}/>  
