@@ -42,6 +42,7 @@
 #mobileMenuBtn {
   color: white;
   height: 100%;
+  width: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,6 +52,7 @@
   width: 100%;
   background-color: black;
   font-size: 1.5rem;
+  box-shadow: 0 .125rem .5rem .125rem black;
 }
 
 #mobileMenu ul {
@@ -64,7 +66,7 @@
 }
 
 #mobileMenu ul li {
-  border-bottom: 1px solid #FFFFFF80;
+  border-bottom: 1px solid #FFFFFF40;
   width: 100%;
   padding: .5rem;
 }
