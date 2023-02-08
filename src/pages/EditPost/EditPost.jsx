@@ -84,7 +84,8 @@ const EditPost = (props) => {
             value={form.journey}
             onChange={handleChange}
           >
-            <option value="">Select Journey</option>
+            <option value={form.journey.id}>{form.journey.name}</option>
+            {/* <option value="">Select Journ/ey</option> */}
             {journeys.map(journey => 
               <option key={journey._id} value={journey._id}>{journey.name}</option>  
             )}
