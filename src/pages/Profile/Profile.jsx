@@ -14,21 +14,22 @@ const Profile = (props) => {
   const [isFollowing, setIsFollowing] = useState(false)
   const { profileId } = useParams()
 
+   //Section for useEffect
   useEffect(() => {
     const fetchProfile = async (profileId) => {
       const profileData = await profileService.getProfile(profileId)
       setProfile(profileData)
     }
     fetchProfile(profileId)
-  }, [profileId])
+  }, [profileId,isFollowing])
+
   //Section for handlers
   const handleFollow = async () => {
-
     if (!isFollowing) {
-      await profileService.follow(journey._id);
+      await profileService.follow(profile._id);
       setIsFollowing(true)
     } else {
-      await profileService.unfollow(journey._id);
+      await profileService.unfollow(profile._id);
       setIsFollowing(false)
     }
   }
@@ -41,8 +42,8 @@ const Profile = (props) => {
           <div>
             {
               profileId !== props.user.profile ?
-              <button>
-                Follow
+              <button onClick={handleFollow}>
+                {isFollowing ? "Unfollow" : "Follow"}
               </button>
               : null
             }

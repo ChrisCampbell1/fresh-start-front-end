@@ -27,9 +27,9 @@ async function addPhoto(photoData, profileId) {
   })
   return await res.json()
 }
-const follow = async (journeyId) => {
+const follow = async (profileId) => {
   try {
-    const res = await fetch(`${BASE_URL}/${journeyId}/subscribers`, {
+    const res = await fetch(`${BASE_URL}/${profileId}`, {
       method: 'POST',
       headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`,
@@ -41,9 +41,9 @@ const follow = async (journeyId) => {
     console.log(error)
   }
 }
-const unfollow = async (journeyId) => {
+const unfollow = async (profileId) => {
   try {
-    const res = await fetch(`${BASE_URL}/${journeyId}/subscribers`, {
+    const res = await fetch(`${BASE_URL}/${profileId}`, {
       method: 'DELETE',
       headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`,
