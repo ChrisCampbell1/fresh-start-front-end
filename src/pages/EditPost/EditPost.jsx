@@ -44,12 +44,12 @@ const EditPost = (props) => {
   return (  
     <main className={styles.container}>
       <h1>Edit Post</h1>
-      <form autoComplete='off' onSubmit={handleSumbit}>
-        <div>
+      <form className={styles.form} autoComplete='off' onSubmit={handleSumbit}>
+        <div className={styles.inputContainer}>
           <label htmlFor='title-input'>Title</label>
           <textarea
             required
-            rows={1}
+            rows={2}
             cols={25}
             name='title'
             id='title-input'
@@ -58,9 +58,10 @@ const EditPost = (props) => {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className={styles.inputContainer}>
           <label htmlFor='category-input'>Category</label>
           <select
+            className={styles.category}
             required
             type='select'
             name='category'
@@ -73,9 +74,10 @@ const EditPost = (props) => {
             <option value='BlogEntry'>Blog Entry</option>
           </select>
         </div>
-        <div>
+        <div className={styles.inputContainer}>
           <label htmlFor='journey-input'>Journey</label>
           <select
+            className={styles.journey}
             required
             type='select'
             name='journey'
@@ -89,7 +91,7 @@ const EditPost = (props) => {
             )}
           </select>
         </div>
-        <div className={styles.content}>
+        <div className={styles.inputContainer}>
           <label htmlFor='content-input'>Post</label>
           <textarea
             required
@@ -102,7 +104,7 @@ const EditPost = (props) => {
             onChange={handleChange}
           />
         </div>
-        <div className={styles.file}>
+        <div className={styles.inputContainer}>
           {photoData ?
             <label htmlFor="photo-input" className={styles.photoInput}>Photo Added</label>
               :
@@ -119,7 +121,9 @@ const EditPost = (props) => {
           <button id={styles.edit}>Edit Post</button>
         </div>
       </form>
-      <button id={styles.delete} onClick={() => handleDeletePost()}>Delete Post</button>
+      <div className={styles.delete}>
+        <button id={styles.delete} onClick={() => handleDeletePost()}>Delete Post</button>
+      </div>
     </main>
   )
 }
