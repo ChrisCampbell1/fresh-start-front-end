@@ -4,3 +4,26 @@
   align-items: center;
   padding: 1rem;
 }
+
+.container .sort {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  height: 2rem;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  background-color: black;
+  color: white;
+}
+
+.container .filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+  border: none;
+  outline: none;
+  height: 2rem;
+  padding: 0 .5rem;
+}
