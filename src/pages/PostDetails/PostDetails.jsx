@@ -13,21 +13,16 @@ const PostDetails = (props) => {
   const { id } = useParams()
 
   const handleLike = async () => {
-    console.log(`POST LIKES`, post.likes)
-    console.log(`PROFILE`, props.user.profile)
-    console.log(post.likes.includes(props.user.profile))
     if (post.likes.includes(props.user.profile)) {
       console.log(`ran dislike`)
       const result = await postService.unlike(post._id)
       setPost(result)
       setLiked(false)
     } else {
-      console.log(`ran like`)
       const result = await postService.like(post._id)
       setPost(result)
       setLiked(true)
     }
-    console.log(`POST AFTER`, post)
   }
 
   useEffect(() => {
