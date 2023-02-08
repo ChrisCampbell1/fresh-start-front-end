@@ -84,11 +84,41 @@ const create = async (form) => {
     }
   }
 
+  const like = async (id) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${id}/likes`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${tokenService.getToken()}`
+        }
+      })
+      return res.json()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const unlike = async (id) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${id}/likes`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${tokenService.getToken()}`
+        }
+      })
+      return res.json()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 export {
   index,
   show,
   create,
   addPostPhoto,
   update,
-  deletePost as delete
+  deletePost as delete,
+  like,
+  unlike,
 }

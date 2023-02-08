@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import PostCard from '../PostCard/PostCard'
 import FeedFilter from '../FeedFilter/FeedFilter'
 
-const Feed = () => {
+const Feed = ({user}) => {
   const [posts, setPosts] = useState([])
   const [searchedPosts, setSearchedPosts] = useState([])
   const [sortStatus, setSortStatus] = useState(null)
@@ -32,7 +32,7 @@ const Feed = () => {
       <FeedFilter handleSort={handleSort} handleSearch={handleSearch} sortStatus={sortStatus} />
       {searchedPosts.length ? 
         searchedPosts.map(post =>
-          <PostCard key={post._id} post={post} />
+          <PostCard key={post._id} post={post} user={user}/>
         )
         :
         <div>Loading posts...</div>

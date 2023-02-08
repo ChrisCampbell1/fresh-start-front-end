@@ -8,8 +8,22 @@ import PostStats from '../../components/PostStats/PostStats'
 
 const PostDetails = (props) => {
   const [post, setPost] = useState({})
+  const [liked, setLiked] = useState(null)
   
   const { id } = useParams()
+
+  const handleLike = async () => {
+    if (post.likes.includes(props.user.profile)) {
+      console.log(`ran dislike`)
+      const result = await postService.unlike(post._id)
+      setPost(result)
+      setLiked(false)
+    } else {
+      const result = await postService.like(post._id)
+      setPost(result)
+      setLiked(true)
+    }
+  }
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -32,7 +46,7 @@ const PostDetails = (props) => {
       </>
       }
       <p>{post.content}</p>
-      <PostStats post={post}/>
+      <PostStats post={post} handleLike={handleLike} liked={liked} />
       <form>
         
       </form>

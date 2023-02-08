@@ -2,7 +2,7 @@ import styles from './DiscoverFilter.module.css'
 import { useState, useEffect } from 'react'
 import * as journeyService from '../../services/journeyService'
 
-const DiscoverFilter = ({ handleSort, handleFilter }) => {
+const DiscoverFilter = ({ handleSort, handleFilter, sortStatus }) => {
   const [journeys, setJourneys] = useState([])
 
   useEffect(() => {
@@ -15,19 +15,23 @@ const DiscoverFilter = ({ handleSort, handleFilter }) => {
 
   return (  
     <div className={styles.container}>
-      <div className={styles.sort}>
-        <div onClick={handleSort}>ASC</div>
-        <div>Member Since</div>
-        <div onClick={handleSort}>DESC</div>
+      <div className={styles.sort} onClick={handleSort}>
+        <div>followers</div>
+          {!sortStatus ?
+            <i className="fas fa-regular fa-sort"></i>
+            :
+            sortStatus === 1 ?
+              <i className="fas fa-solid fa-sort-down"></i>
+              :
+              <i className="fas fa-solid fa-sort-up"></i>       
+          }
       </div>
-      <div className={styles.filter}>
-          <select onChange={handleFilter}>
-            <option value=''>Filter by Journey</option>
-            {journeys.map(journey => (
-              <option key={journey._id} value={journey._id}>{journey.name}</option>
-            ))}
-          </select>
-      </div>
+      <select className={styles.filter} onChange={handleFilter}>
+        <option value=''>Filter by Journey</option>
+        {journeys.map(journey => (
+          <option key={journey._id} value={journey._id}>{journey.name}</option>
+        ))}
+      </select>
     </div>
   )
 }
