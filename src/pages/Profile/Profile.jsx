@@ -2,7 +2,6 @@ import styles from './Profile.module.css'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import * as profileService from '../../services/profileService'
-// import { login, logout } from '../../services/authService'
 
 import Icon from '../../components/Icon/Icon'
 import PostCard from '../../components/PostCard/PostCard'
@@ -22,6 +21,12 @@ const Profile = (props) => {
     }
     fetchProfile(profileId)
   }, [profileId,isFollowing])
+
+  useEffect(() => {
+    setIsFollowing(
+      profile.followers && profile.followers.some(follower => follower._id === props.user.profile)
+    )
+  }, [profile.followers, props.user.profile])
 
   //Section for handlers
   const handleFollow = async () => {
