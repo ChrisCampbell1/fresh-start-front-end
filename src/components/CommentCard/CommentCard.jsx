@@ -1,8 +1,11 @@
 import styles from './CommentCard.module.css'
 
-const CommentCard = ({ post }) => {
+const CommentCard = ({ comment }) => {
+  console.log(comment)
   return (  
-    <p>this is a comment card</p>
+    <div className={styles.container}>
+      
+    </div>
   )
 }
 
