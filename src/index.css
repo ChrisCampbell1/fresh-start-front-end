@@ -19,4 +19,9 @@ code {
 
 main {
   margin-top: 4rem;
+  background-color: gray;
+}
+
+a {
+  text-decoration: none;
 }
