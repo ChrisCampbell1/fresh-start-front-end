@@ -31,7 +31,7 @@ const NavBar = ({ user, handleLogout, profile }) => {
   return (
     <div id={style.mobileNav}>
       <div id={style.navHeader}>
-        {profile.photo ?
+        {user ?
           <Link to={`/profiles/${user?.profile}`}><img id={style.profilePhoto} src={profile.photo} alt={profile.name} /></Link>
           :
           <div id={style.profilePhoto}></div>
