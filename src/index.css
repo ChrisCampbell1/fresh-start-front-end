@@ -24,4 +24,5 @@ main {
 
 a {
   text-decoration: none;
+  color: pink !important;
 }

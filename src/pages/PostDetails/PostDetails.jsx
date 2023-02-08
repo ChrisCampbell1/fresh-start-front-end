@@ -44,7 +44,7 @@ const PostDetails = ({ user, profile }) => {
     evt.preventDefault()
     try {
       const data = await postService.addComment({content: form}, post._id)
-      setPost({...post, comments: [...post.comments, data]})
+      setPost({...post, comments: [data, ...post.comments]})
       setContent('')
     } catch (err) {
       console.log(err)
