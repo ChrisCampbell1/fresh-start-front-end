@@ -35,7 +35,7 @@ const Feed = ({user}) => {
           <PostCard key={post._id} post={post} user={user}/>
         )
         :
-        <div>Loading posts...</div>
+        <div>Follow other users to see their posts</div>
       }
     </div>
   )
