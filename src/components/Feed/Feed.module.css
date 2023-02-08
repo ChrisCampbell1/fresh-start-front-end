@@ -6,3 +6,28 @@
   justify-content: center;
   gap: .5rem;
 }
+
+.blankFeed {
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.blankFeed a {
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  height: 2rem;
+  padding: .5rem;
+  border-radius: .5rem;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  width: 17rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
