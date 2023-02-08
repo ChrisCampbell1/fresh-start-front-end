@@ -4,7 +4,7 @@ import Feed from '../../components/Feed/Feed'
 const Landing = ({ user }) => {
   return (
     <main className={styles.container}>
-      <Feed user={user} />
+      {user && <Feed user={user} />}
     </main>
   )
 }

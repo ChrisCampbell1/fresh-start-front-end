@@ -28,7 +28,7 @@ const Discover = () => {
   }
 
   return (  
-    <div className={styles.container}>
+    <main className={styles.container}>
       <h1>Discover</h1>
       <DiscoverFilter handleSort={handleSort} handleFilter={handleFilter} sortStatus={sortStatus} />
       {profiles.length ?
@@ -45,7 +45,7 @@ const Discover = () => {
         <div>Loading profiles...</div>
       </>
     }
-    </div>
+    </main>
   )
 }
 
