@@ -11,8 +11,7 @@ import defaultProfilePhoto from '../../assets/profile.png'
 
 const Profile = (props) => {
   const [profile, setProfile] = useState({})
-  const [isFollowing, setIsFollowing] = useState(false);
-
+  const [isFollowing, setIsFollowing] = useState(false)
   const { profileId } = useParams()
 
   useEffect(() => {
@@ -23,19 +22,32 @@ const Profile = (props) => {
     fetchProfile(profileId)
   }, [profileId])
   //Section for handlers
-  console.log(profileId)
+  const handleFollow = async () => {
+
+    if (!isFollowing) {
+      await profileService.follow(journey._id);
+      setIsFollowing(true)
+    } else {
+      await profileService.unfollow(journey._id);
+      setIsFollowing(false)
+    }
+  }
+
   return (  
     <main className={styles.container}>
       {profile._id ? 
         <>
           <h1>{profile.name}</h1>
-          {
-            profileId !== props.user.profile ?
-            <button>
-              Follow
-            </button>
-            : null
-          }
+          <div>
+            {
+              profileId !== props.user.profile ?
+              <button>
+                Follow
+              </button>
+              : null
+            }
+          </div>
+          
           <img className={styles.profilePhoto} src={profile.photo ? profile.photo : defaultProfilePhoto} alt={profile.name} />
           <section className={styles.stats}>
               <ul>

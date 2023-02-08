@@ -27,5 +27,39 @@ async function addPhoto(photoData, profileId) {
   })
   return await res.json()
 }
+const follow = async (journeyId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${journeyId}/subscribers`, {
+      method: 'POST',
+      headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'Content-Type': 'application/json'
+      }
+      })
+      return res
+  } catch (error) {
+    console.log(error)
+  }
+}
+const unfollow = async (journeyId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${journeyId}/subscribers`, {
+      method: 'DELETE',
+      headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'Content-Type': 'application/json'
+      }
+      })
+      return res
+  } catch (error) {
+    console.log(error)
+  }
+}
 
-export { getAllProfiles, getProfile, addPhoto }
+export { 
+  getAllProfiles, 
+  getProfile, 
+  addPhoto,
+  follow,
+  unfollow
+}
