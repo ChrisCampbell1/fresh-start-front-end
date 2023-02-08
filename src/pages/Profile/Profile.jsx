@@ -9,24 +9,46 @@ import PostCard from '../../components/PostCard/PostCard'
 import defaultProfilePhoto from '../../assets/profile.png'
 
 
-const Profile = () => {
+const Profile = (props) => {
   const [profile, setProfile] = useState({})
-
+  const [isFollowing, setIsFollowing] = useState(false)
   const { profileId } = useParams()
 
+   //Section for useEffect
   useEffect(() => {
     const fetchProfile = async (profileId) => {
       const profileData = await profileService.getProfile(profileId)
       setProfile(profileData)
     }
     fetchProfile(profileId)
-  }, [profileId])
+  }, [profileId,isFollowing])
+
+  //Section for handlers
+  const handleFollow = async () => {
+    if (!isFollowing) {
+      await profileService.follow(profile._id);
+      setIsFollowing(true)
+    } else {
+      await profileService.unfollow(profile._id);
+      setIsFollowing(false)
+    }
+  }
 
   return (  
     <main className={styles.container}>
       {profile._id ? 
         <>
           <h1>{profile.name}</h1>
+          <div>
+            {
+              profileId !== props.user.profile ?
+              <button onClick={handleFollow}>
+                {isFollowing ? "Unfollow" : "Follow"}
+              </button>
+              : null
+            }
+          </div>
+          
           <img className={styles.profilePhoto} src={profile.photo ? profile.photo : defaultProfilePhoto} alt={profile.name} />
           <section className={styles.stats}>
               <ul>

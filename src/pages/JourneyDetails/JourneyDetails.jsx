@@ -44,7 +44,6 @@ const JourneyDetails = (props) => {
       await journeyService.unsubscribe(journey._id);
       setIsSubscribed(false)
     }
-    
   }
   //Section for useEffect
   useEffect(() => {
