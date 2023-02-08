@@ -29,7 +29,6 @@ const Discover = () => {
 
   return (  
     <main className={styles.container}>
-      <h1>Discover</h1>
       <DiscoverFilter handleSort={handleSort} handleFilter={handleFilter} sortStatus={sortStatus} />
       {profiles.length ?
         filteredProfiles.length ?

@@ -1,9 +1,11 @@
 .container {
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid black;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 .125rem .125rem 0 #00000080;
+  width: 100%;
 }
 
 .container a {
