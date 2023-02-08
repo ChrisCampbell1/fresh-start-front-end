@@ -9,6 +9,7 @@ import follow from '../../assets/icons/follow.svg'
 import unfollow from '../../assets/icons/unfollow.svg'
 import following from '../../assets/icons/following.svg'
 import star from '../../assets/icons/star.svg'
+import git from '../../assets/icons/github-mark-white.svg'
 
 const Icon = ({ category }) => {
   const icons = {
@@ -22,7 +23,9 @@ const Icon = ({ category }) => {
     Follow: follow,
     Unfollow: unfollow,
     Following: following,
-    Star: star
+    Star: star,
+    GitLogo: git
+
   }
   return (  
     <img className='icon' src={icons[category]} alt={`a ${category} icon`} />
