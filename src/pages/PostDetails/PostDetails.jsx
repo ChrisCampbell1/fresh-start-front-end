@@ -32,7 +32,7 @@ const PostDetails = ({user}) => {
       setProfile(data)
     }
     fetchProfile()
-  }, [])
+  }, [user.profile])
 
   const handleLike = async () => {
     if (post.likes.includes(user.profile)) {

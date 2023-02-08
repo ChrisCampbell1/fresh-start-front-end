@@ -1,5 +1,4 @@
 import * as tokenService from './tokenService'
-import { addPhoto as addProfilePhoto } from './profileService'
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/posts`
 
 const index = async () => {
@@ -42,7 +41,6 @@ const create = async (form) => {
 }
 
   async function addPostPhoto(photo, postId) {
-    console.log("add post photo ran");
     const photoData = new FormData()
     photoData.append('photo', photo)
     const res = await fetch(`${BASE_URL}/${postId}/add-photo`, {

@@ -1,5 +1,4 @@
 import styles from './AddComment.module.css'
-import { useState } from 'react'
 
 const AddComment = ({ profile, handleSubmit, content, handleCommentContentChange }) => {
   return (
