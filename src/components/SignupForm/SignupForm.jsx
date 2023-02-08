@@ -11,7 +11,7 @@ const SignupForm = props => {
     password: '',
     passwordConf: '',
   })
-  const [photoData, setPhotoData] = useState({})
+  const [photoData, setPhotoData] = useState(null)
 
   const handleChange = e => {
     props.updateMessage('')
@@ -95,9 +95,11 @@ const SignupForm = props => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="photo-upload" className={styles.label}>
-          Upload Photo
-        </label>
+        {photoData ?
+          <label htmlFor="photo-upload" className={styles.photoInput}>Photo Added</label>
+          :
+          <label htmlFor="photo-upload" className={styles.photoInput}>Upload Photo</label>
+        }
         <input
           type="file"
           id="photo-upload"
