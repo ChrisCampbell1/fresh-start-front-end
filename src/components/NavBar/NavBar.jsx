@@ -1,14 +1,21 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import style from './NavBar.module.css'
 import logo from '../../assets/logo.png'
 
 const NavBar = ({ user, handleLogout, profile }) => {
   const [navState, setNavState] = useState(false)
 
+  //Section for hanlders
   const handleNavBtnClick = () => {
     setNavState(!navState)
   }
+  //Section for useEffects
+  useEffect(() => {
+    setNavState(false)
+    }, [user])
+  
+
 
   const publicLinks = (
     <ul>
@@ -28,6 +35,7 @@ const NavBar = ({ user, handleLogout, profile }) => {
       <li><Link onClick={handleLogout} to="/">Log Out</Link></li>
   </ul>
   )
+
   return (
     <div id={style.mobileNav}>
       <div id={style.navHeader}>
