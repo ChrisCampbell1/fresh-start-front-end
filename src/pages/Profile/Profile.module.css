@@ -64,6 +64,7 @@
 .container .posts {
   width: 100%;
   text-align: center;
+  list-style: none;
 }
 
 .container .posts h4 {
