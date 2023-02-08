@@ -65,12 +65,12 @@ select {
   margin-top: 5rem;
   margin-left: auto;
   margin-right: auto;
-  background-color: rgb(255, 75, 75);
+  background-color: #ff4b4b;
   color: black;
   font-weight: bold;
 }
 
 #edit {
-  background-color: rgb(1, 84, 1);
+  background-color: #015401;
   font-weight: bold;
 }

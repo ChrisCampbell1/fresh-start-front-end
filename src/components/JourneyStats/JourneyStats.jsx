@@ -5,8 +5,8 @@ import RatingCalculator from '../RatingCalculator/RatingCalculator'
 const JourneyStats = ({ journey }) => {
   return (  
     <div className={styles.container}>
-      <SubscriberCounter journey={journey}/>
-      <RatingCalculator journey={journey}/>
+        <SubscriberCounter journey={journey}/>
+        <RatingCalculator journey={journey}/>
     </div>
   )
 }

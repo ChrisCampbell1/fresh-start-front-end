@@ -1,59 +1,45 @@
 .container {
   padding: 0;
   display: flex;
-  border: none;
-  max-width: 100%;
-  box-shadow: none;
   flex-direction: row;
-  align-items: center;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-}
-
-.container h3 {
-  margin: 0;
-  color: black;
-}
-
-.container input, .container textarea { 
-  width: 100%;
-  padding: 14px;
-  font-size: 14px;
-  resize: vertical;
-  border-radius: 5px;
-  margin: 14px 0px 14px 0px;
-  border: 1px solid var(--border);
-}
-
-.container textarea {
-  min-height: 50px;
-}
-
-.container button {
-  margin: 0;
-  color: white;
-  font-weight: 600;
-  background: #00a0df;
-}
-
-.container button[type="submit"] {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  margin-left: 14px;
-  border-radius: 50%;
   align-items: center;
   justify-content: center;
 }
 
-.container button[type="submit"]:hover {
-  cursor: pointer;
+.container textarea { 
+  width: 100%;
+  padding: 14px;
+  resize: vertical;
+  border-radius: .25rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  border: solid black;
+  margin-right: 1rem;
 }
 
-.container button[type="submit"] img {
-  width: 18px;
-  height: 18px;
+.container button {
+  margin-left: .5rem;
+  margin-right: 1rem;
+  padding: .75rem;
+  color: white;
+  font-weight: 600;
+  background: #015401;
+  border-radius: 1rem;
+  border: none;
 }
-.container textarea{
-  border: solid black;
+
+.container select {
+  padding: .5rem;
+  color: white;
+  font-weight: 600;
+  background: black;
+  border-radius: 1rem;
+  border: none;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

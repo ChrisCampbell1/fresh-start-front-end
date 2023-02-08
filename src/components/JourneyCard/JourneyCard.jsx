@@ -9,12 +9,10 @@ const JourneyCard = ({ journey }) => {
       <h2>{journey.name}</h2>
     </Link>
     <Link to={`/journeys/${journey._id}`} state={journey}>
-      <img className={styles.cardPhoto} src={journey.photo} alt="journey name" />
+      <img className={styles.cardPhoto} src={journey.photo} alt={journey.name} />
     </Link>
     <p>{journey.description}</p>
-    <div className={styles.journeyStats}>
-      <JourneyStats journey={journey}/>
-    </div>
+    <JourneyStats journey={journey}/>
   </div>
   )
 }
