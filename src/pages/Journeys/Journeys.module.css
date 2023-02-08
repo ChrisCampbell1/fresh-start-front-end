@@ -1,3 +1,36 @@
 .container {
-  
+  border: 1px solid red;
+}
+
+.container .search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+  border: none;
+  outline: none;
+  height: 2rem;
+}
+
+.container .search > * {
+  background-color: black;
+  color: white;
+  height: 100%;
+  padding: 0 .5rem;
+}
+
+.container .search i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem 0 0 2rem;
+}
+
+.container .search input {
+  border: none;
+  border-radius: 0 2rem 2rem 0;
+}
+
+.container .search input:focus {
+  outline: none;
 }
