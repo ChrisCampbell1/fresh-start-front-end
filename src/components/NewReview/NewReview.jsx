@@ -18,9 +18,8 @@ const NewReview = (props) => {
 
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
-      <textarea
+      <input
         required
-        rows={5}
         type="text"
         name="content"
         id="text-input"

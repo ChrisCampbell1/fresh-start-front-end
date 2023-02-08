@@ -94,13 +94,12 @@ const JourneyDetails = (props) => {
       </div>
         {reviewsState ?
           journey.reviews && journey.reviews.length > 0 ? (
-            <div>
-              <h4>Add review</h4>
+            <div className={styles.review}>
               <NewReview handleAddReview={handleAddReview}/>
               <JourneyReviews journeyId={journey._id} reviews={journey.reviews} user={props.user} handleDeleteReview={handleDeleteReview} />
             </div>
           ) : (
-            <div>No reviews for this journey yet.</div>
+            <div className={styles.review}>No reviews for this journey yet.</div>
           ) :
           subscriberProfiles && subscriberProfiles.length > 0 ? (
             <div>

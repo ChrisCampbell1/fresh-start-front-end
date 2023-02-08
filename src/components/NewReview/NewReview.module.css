@@ -4,18 +4,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border: 1px solid green;
 }
 
 .container textarea { 
-  width: 100%;
-  padding: 14px;
-  resize: vertical;
-  border-radius: .25rem;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  margin-left: 1rem;
-  border: solid black;
-  margin-right: 1rem;
+
 }
 
 .container button {
