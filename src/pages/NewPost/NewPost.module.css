@@ -2,18 +2,43 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  background-color: white;
 }
 
-.container div {
+.form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-bottom: 50px;
+  margin-top: 3rem;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: white;
+  text-align: left;
+}
+
+.label,
+.button {
+  margin-right: .5rem;
   margin-bottom: 1rem;
 }
 
-.container label {
-  font-size: 1.5rem;
-  margin-bottom: .5rem;
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+input {
+  width: 100%;
+  height: 2rem;
+  border-radius: .25rem;
+  border: 1px solid black;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .container button {
@@ -22,40 +47,39 @@
   gap: .5rem;
   height: 2rem;
   padding: 0 1rem;
-  border-radius: 1rem;
+  border-radius: .5rem;
   background-color: black;
   color: white;
   border: none;
   font-size: 1rem;
+  width: 8rem;
 }
 
 .photoInput {
   align-items: center;
   justify-content: center;
+  text-align: center;
   height: 2rem;
   padding: .5rem 1rem;
-  border-radius: 2rem;
+  border-radius: .5rem;
   background-color: black;
   color: white;
-}
-
-input[type="file"] {
-  display: none;
-}
-
-.file label {
-  font-size: 1rem;
+  width: 9rem;
 }
 
 textarea {
   border-radius: .25rem;
-  font-size: 1rem;
+  border: 1px solid black;
 }
 
 select {
-  background-color: black;
-  color: white;
-  border-radius: 2rem;
-  padding: .25rem;
-  font-size: 1rem;
+  border-radius: .5rem;
+}
+
+.category {
+  width: 7rem;
+}
+
+.journey {
+  width: 9rem;
 }

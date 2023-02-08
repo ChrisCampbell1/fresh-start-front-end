@@ -47,12 +47,12 @@ const NewPost = (props) => {
   return (  
     <main className={styles.container}>
       <h1>New Post</h1>
-      <form autoComplete='off' onSubmit={handleSubmit}>
-        <div>
+      <form className={styles.form} autoComplete='off' onSubmit={handleSubmit}>
+        <div className={styles.inputContainer}>
           <label htmlFor='title-input'>Title</label>
           <textarea
             required
-            rows={1}
+            rows={2}
             cols={25}
             name='title'
             id='title-input'
@@ -61,9 +61,10 @@ const NewPost = (props) => {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className={styles.inputContainer}>
           <label htmlFor='category-input'>Category</label>
           <select
+            className={styles.category}
             required
             type='select'
             name='category'
@@ -76,9 +77,10 @@ const NewPost = (props) => {
             <option value='BlogEntry'>Blog Entry</option>
           </select>
         </div>
-        <div>
+        <div className={styles.inputContainer}>
           <label htmlFor='journey-input'>Journey</label>
           <select
+            className={styles.journey}
             required
             type='select'
             name='journey'
@@ -92,7 +94,7 @@ const NewPost = (props) => {
             )}
           </select>
         </div>
-        <div className={styles.content}>
+        <div className={styles.inputContainer}>
           <label htmlFor='content-input'>Post</label>
           <textarea
             required
@@ -105,7 +107,7 @@ const NewPost = (props) => {
             onChange={handleChange}
           />
         </div>
-        <div className={styles.file}>
+        <div className={styles.inputContainer}>
           {photoData ?
             <label htmlFor="photo-input" className={styles.photoInput}>Photo Added</label>
             :
