@@ -9,10 +9,9 @@ import CommentsList from '../../components/CommentsList/CommentsList'
 import AddComment from '../../components/AddComment/AddComment'
 
 
-const PostDetails = ({user}) => {
+const PostDetails = ({ user, profile }) => {
   const [post, setPost] = useState({})
   const [liked, setLiked] = useState(null)
-  const [profile, setProfile] = useState({})
   const [content, setContent] = useState('')
 
   
@@ -25,14 +24,6 @@ const PostDetails = ({user}) => {
       }
       fetchPost()
     }, [id])
-  
-  useEffect(() => {
-    const fetchProfile = async () => {
-      const data = await profileService.getProfile(user.profile)
-      setProfile(data)
-    }
-    fetchProfile()
-  }, [user.profile])
 
   const handleLike = async () => {
     if (post.likes.includes(user.profile)) {
