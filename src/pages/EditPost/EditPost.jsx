@@ -10,7 +10,7 @@ const EditPost = (props) => {
   const location = useLocation()
   const { post } = location.state
   const [form, setForm] = useState(post)
-  const [photoData, setPhotoData] = useState({})
+  const [photoData, setPhotoData] = useState(null)
   const [journeys, setJourneys] = useState([])
 
   useEffect(() => {
@@ -19,7 +19,6 @@ const EditPost = (props) => {
       setJourneys(profile.journeys)
     }
     fetchJourneys()
-    console.log(journeys)
   }, [])
 
   const handleChange = ({ target }) => {
@@ -85,7 +84,6 @@ const EditPost = (props) => {
             onChange={handleChange}
           >
             <option value={form.journey.id}>{form.journey.name}</option>
-            {/* <option value="">Select Journ/ey</option> */}
             {journeys.map(journey => 
               <option key={journey._id} value={journey._id}>{journey.name}</option>  
             )}
@@ -105,7 +103,11 @@ const EditPost = (props) => {
           />
         </div>
         <div className={styles.file}>
-          <label htmlFor="photo-input" className={styles.photoInput}>Add a Photo</label>
+          {photoData ?
+            <label htmlFor="photo-input" className={styles.photoInput}>Photo Added</label>
+              :
+              <label htmlFor="photo-input" className={styles.photoInput}>Edit Photo</label>
+            }
           <input
             type='file'
             name='photo'

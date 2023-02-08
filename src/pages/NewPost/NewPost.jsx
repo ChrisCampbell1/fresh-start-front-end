@@ -14,7 +14,7 @@ const NewPost = (props) => {
     content: '',
   })
 
-  const [photoData, setPhotoData] = useState({})
+  const [photoData, setPhotoData] = useState(null)
 
   const [journeys, setJourneys] = useState([])
 
@@ -106,7 +106,11 @@ const NewPost = (props) => {
           />
         </div>
         <div className={styles.file}>
-          <label htmlFor="photo-input" className={styles.photoInput}>Add a Photo</label>
+          {photoData ?
+            <label htmlFor="photo-input" className={styles.photoInput}>Photo Added</label>
+            :
+            <label htmlFor="photo-input" className={styles.photoInput}>Add a Photo</label>
+          }
           <input
             type='file'
             name='photo'
