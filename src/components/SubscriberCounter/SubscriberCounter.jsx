@@ -1,8 +1,9 @@
 import styles from './SubscriberCounter.module.css'
+import Icon from '../Icon/Icon'
 
 const SubscriberCounter = ({ journey }) => {
   return (  
-    <p><strong>Subscribers:</strong> {journey.subscribers.length}</p>
+    <p><Icon category={"Follower"}/> {journey.subscribers.length}</p>
   )
 }
 

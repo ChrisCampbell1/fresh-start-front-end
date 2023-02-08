@@ -12,9 +12,7 @@ const JourneyCard = ({ journey }) => {
       <img className={styles.cardPhoto} src={journey.photo} alt={journey.name} />
     </Link>
     <p>{journey.description}</p>
-    <div className={styles.journeyStats}>
-      <JourneyStats journey={journey}/>
-    </div>
+    <JourneyStats journey={journey}/>
   </div>
   )
 }
