@@ -93,13 +93,16 @@ const JourneyDetails = ({ user, profile }) => {
           <button id={reviewsState ? styles.inactive : styles.active} onClick={handleSubscribersClick}>Subscribers</button>
       </div>
         {reviewsState ?
-          journey.reviews && journey.reviews.length > 0 ? (
+          journey.reviews && journey.reviews.length ? (
             <div className={styles.review}>
               <NewReview handleAddReview={handleAddReview} profile={profile} />
               <JourneyReviews journeyId={journey._id} reviews={journey.reviews} user={user} handleDeleteReview={handleDeleteReview} />
             </div>
           ) : (
-            <div className={styles.review}>No reviews for this journey yet.</div>
+            <div className={styles.review}>
+              <NewReview handleAddReview={handleAddReview} profile={profile} />
+              <div id={styles.noReview}>No reviews for this journey yet.</div>
+            </div>
           ) :
           subscriberProfiles && subscriberProfiles.length > 0 ? (
             <div className={styles.subscribers}>
@@ -110,7 +113,7 @@ const JourneyDetails = ({ user, profile }) => {
               )}
             </div>
           ) : (
-            <div>No subscriber for this journey yet...</div>
+            <div id={styles.noSubs}>No subscriber for this journey yet...</div>
           )
         }
     </main>

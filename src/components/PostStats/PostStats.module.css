@@ -3,5 +3,6 @@
   flex-flow: column;
   justify-content: space-evenly;
   align-items: center;
+  gap: .25rem;
   height: 100%;
 }

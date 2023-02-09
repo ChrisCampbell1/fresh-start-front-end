@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import PostCard from '../PostCard/PostCard'
 import FeedFilter from '../FeedFilter/FeedFilter'
 import { Link } from 'react-router-dom'
-import logo from '../../assets/logo2.png'
 
 const Feed = ({user, profile}) => {
   const [posts, setPosts] = useState([])

@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   gap: .5rem;
   width: 100%;
@@ -16,6 +16,6 @@
 
 .container p {
   font-size: 1rem;
-  width: 2.5rem;
+  width: 2rem;
   padding: 0;
 }
