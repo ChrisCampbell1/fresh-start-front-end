@@ -1,10 +1,10 @@
 # FreshStart
 
-## [Start your journey here!](https://startfresh.netlify.app/)
+**[Start your journey here!](https://startfresh.netlify.app/)**
 
-## [Planning Materials](https://trello.com/b/1Rmggolj/freshstart-project-plan)
+**[Planning Materials](https://trello.com/b/1Rmggolj/freshstart-project-plan)**
 
-## [FreshStart Back-End](https://github.com/robfrid06/fresh-start-back-end/tree/profiles-router)
+**[FreshStart Back-End](https://github.com/robfrid06/fresh-start-back-end/tree/profiles-router)**
 
 ## Contributors
 
