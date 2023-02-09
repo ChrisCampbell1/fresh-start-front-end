@@ -13,7 +13,7 @@
   width: 2rem;
   height: 2rem;
   object-fit: cover;
-  border-radius: 2rem;
+  border-radius: .5rem;
 }
 
 .container form {
@@ -33,7 +33,7 @@
   color: white;
   height: 100%;
   padding: 0 1rem;
-  border-radius: 2rem;
+  border-radius: .5rem;
 }
 
 .container form input:focus {
@@ -47,7 +47,7 @@
   border: none;
   background-color: black;
   color: white;
-  border-radius: 2rem;
+  border-radius: .5rem;
   display: flex;
   justify-content: center;
   align-items: center;

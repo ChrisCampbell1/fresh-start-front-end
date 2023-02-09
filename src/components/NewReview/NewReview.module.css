@@ -33,7 +33,7 @@
   padding: 0 1rem;
   margin: 0;
   height: 2rem;
-  border-radius: .25rem;
+  border-radius: .5rem;
 }
 
 .container form input:focus { 
@@ -53,6 +53,13 @@
 }
 
 .container select {
+  border: none;
+  width: 4rem;
+  height: 2rem;
+  border-radius: .5rem;
+}
+
+.container select:focus {
   border: none;
   width: 4rem;
   height: 2rem;

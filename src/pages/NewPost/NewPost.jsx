@@ -32,7 +32,7 @@ const NewPost = (props) => {
       setJourneys(profile.journeys)
     }
     fetchJourneys()
-  }, [])
+  }, [props.user.profile])
 
   const handleSubmit = async (evt) => {
     evt.preventDefault()

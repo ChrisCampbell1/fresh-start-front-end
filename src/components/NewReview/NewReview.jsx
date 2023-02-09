@@ -18,7 +18,7 @@ const NewReview = ({ profile, handleAddReview }) => {
   return (
     <div className={styles.container}>
       <img src={profile.photo} alt={profile.name} />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} autoComplete="off">
         <input
           required
           type="text"
