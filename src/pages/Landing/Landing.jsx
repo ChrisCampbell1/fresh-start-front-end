@@ -1,7 +1,7 @@
 import styles from './Landing.module.css'
 import Feed from '../../components/Feed/Feed'
 import video from '../../assets/landing-video.mp4'
-import heroWhite from '../../assets/hero-white.png'
+import heroWhite from '../../assets/hero-white2.png'
 import { Link } from 'react-router-dom'
 
 const Landing = ({ user, profile }) => {
