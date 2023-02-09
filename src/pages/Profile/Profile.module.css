@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-flow: column;
   gap: .5rem;
@@ -106,4 +106,17 @@
   border: none;
   font-size: 1rem;
   width: 8rem;
+}
+
+#noPosts {
+  background-color: white;
+  padding: .5rem 0;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 .125rem .125rem 0 #00000080;
+}
+
+#noPosts a {
+  color: black;
+  cursor: pointer;
 }

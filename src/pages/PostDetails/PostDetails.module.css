@@ -18,6 +18,10 @@
   padding-bottom: .5rem;
 }
 
+.container .post a {
+  color: black;
+}
+
 .container .post .title {
   display: flex;
   justify-content: center;

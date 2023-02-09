@@ -6,6 +6,7 @@ import * as profileService from '../../services/profileService'
 import Icon from '../../components/Icon/Icon'
 import PostCard from '../../components/PostCard/PostCard'
 import defaultProfilePhoto from '../../assets/profile.png'
+import { Link } from 'react-router-dom'
 
 
 const Profile = (props) => {
@@ -84,7 +85,7 @@ const Profile = (props) => {
                   <PostCard key={post._id} post={post} user={props.user} />
                 ))
                 :
-                <li>No posts yet...</li>
+                <div id={styles.noPosts}><Link to="/posts/new">Create your first post!</Link></div>
               }
           </section>
         </>
