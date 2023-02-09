@@ -10,6 +10,7 @@
 
 .container .profilePhoto {
   min-width: 2rem;
+  width: 2rem;
   height: 2rem;
   object-fit: cover;
   border-radius: 2rem;
@@ -46,6 +47,7 @@
   color: white;
   height: 2rem;
   min-width: 2rem;
+  width: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
