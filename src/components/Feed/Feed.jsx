@@ -37,11 +37,6 @@ const Feed = ({user, profile}) => {
           <PostCard key={post._id} post={post} user={user}/>
         )
         :
-        profile.following ?
-        <div className={styles.loading}>
-          <img src={logo} alt="" />
-        </div>
-        :
         <div className={styles.blankFeed}>
           <h1>Welcome to FreshStart</h1>
           <p>This is your feed.</p>
