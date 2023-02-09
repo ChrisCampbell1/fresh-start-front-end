@@ -35,7 +35,7 @@ const PostCard = (props) => {
       <AuthorInfo author={post.author} date={post.createdAt}/>
       <div className={styles.postType}>
         <Icon category={post.category}/>
-        <p>{post.journey.name}</p>
+        <p>{post.journey?.name}</p>
       </div>
       <PostStats post={post} handleLike={handleLike} liked={liked} />
     </div>

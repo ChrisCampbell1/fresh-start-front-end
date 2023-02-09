@@ -99,7 +99,7 @@ const App = () => {
             path="/journeys/:id"
             element={
               <ProtectedRoute user={user}>
-                <JourneyDetails user={user}/>
+                <JourneyDetails user={user} profile={profile}/>
               </ProtectedRoute>
             }
           />

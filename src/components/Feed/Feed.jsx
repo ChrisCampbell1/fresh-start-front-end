@@ -25,7 +25,7 @@ const Feed = ({user}) => {
   }
   
   const handleSearch = (str) => {
-    setSearchedPosts([...posts.filter(post => post.author.name.toLowerCase().includes(str))])
+    setSearchedPosts([...posts.filter(post => post.author.name.toLowerCase().includes(str.toLowerCase()))])
   }
 
   return (  

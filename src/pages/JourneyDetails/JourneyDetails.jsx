@@ -10,7 +10,7 @@ import * as journeyService from '../../services/journeyService'
 import * as profileService from '../../services/profileService'
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
 
-const JourneyDetails = (props) => {
+const JourneyDetails = ({ user, profile }) => {
   const { id } = useParams()
   const [journey, setJourney] = useState({})
   const [subscriberProfiles, setsubscriberProfiles] = useState({})
@@ -56,9 +56,9 @@ const JourneyDetails = (props) => {
   
   useEffect(() => {
     setIsSubscribed(
-      journey.subscribers && journey.subscribers.some(subscriber => subscriber._id === props.user.profile)
+      journey.subscribers && journey.subscribers.some(subscriber => subscriber._id === user.profile)
     )
-  }, [journey.subscribers, props.user.profile])
+  }, [journey.subscribers, user.profile])
   
   useEffect(() => {
     const fetchProfiles = async () => {
@@ -78,52 +78,31 @@ const JourneyDetails = (props) => {
 
   return (  
     <main className={styles.container}>
-        <>
-        <div>
-          <button id={styles.subscribe} onClick={handleSubscribe}>
-            {isSubscribed ? "Unsubscribe" : "Subscribe"}
-          </button>
+      <div className={styles.journeyCard}>
+        <div className={styles.hero}>
+          <img src={journey.photo} alt="Journey Cover" />
+          <div className={styles.content}>
+            <h1>{journey.name}</h1>
+            <button onClick={handleSubscribe}>{isSubscribed ? "Unsubscribe" : "Subscribe"}</button>
+          </div>
         </div>
-        <h1>{journey.name}</h1>
-        <div>
-          <img src= {journey.photo} alt="Journey Cover" />
-        </div>
-        <div className={styles.description}>
-          <p>{journey.description}</p>
-        </div>
-        <div className={styles.tabs}>
-          {reviewsState ?
-          <>
-            <button id={styles.active} onClick={handleReviewsClick}>
-              Reviews
-            </button>
-            <button id={styles.inactive} onClick={handleSubscribersClick}>
-              Subscribers
-            </button>
-          </>
-          :
-          <>
-            <button id={styles.inactive} onClick={handleReviewsClick}>
-              Reviews
-            </button>
-            <button id={styles.active} onClick={handleSubscribersClick}>
-              Subscribers
-            </button>
-          </>
-          }
-        </div>
+        <p>{journey.description}</p>
+      </div>
+      <div className={styles.tabs}>
+          <button id={reviewsState ? styles.active : styles.inactive} onClick={handleReviewsClick}>Reviews</button>
+          <button id={reviewsState ? styles.inactive : styles.active} onClick={handleSubscribersClick}>Subscribers</button>
+      </div>
         {reviewsState ?
           journey.reviews && journey.reviews.length > 0 ? (
-            <div>
-              <h4>Add review</h4>
-              <NewReview handleAddReview={handleAddReview}/>
-              <JourneyReviews journeyId={journey._id} reviews={journey.reviews} user={props.user} handleDeleteReview={handleDeleteReview} />
+            <div className={styles.review}>
+              <NewReview handleAddReview={handleAddReview} profile={profile} />
+              <JourneyReviews journeyId={journey._id} reviews={journey.reviews} user={user} handleDeleteReview={handleDeleteReview} />
             </div>
           ) : (
-            <div>No reviews for this journey yet.</div>
+            <div className={styles.review}>No reviews for this journey yet.</div>
           ) :
           subscriberProfiles && subscriberProfiles.length > 0 ? (
-            <div>
+            <div className={styles.subscribers}>
               {subscriberProfiles
               .sort((a, b) => b.followers.length - a.followers.length)
               .map(profile => 
@@ -131,10 +110,9 @@ const JourneyDetails = (props) => {
               )}
             </div>
           ) : (
-            <div>No subscriber for this journey yet.</div>
+            <div>No subscriber for this journey yet...</div>
           )
         }
-      </>
     </main>
   )
 }
