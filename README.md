@@ -2,7 +2,7 @@
 
 # [FreshStart](https://startfresh.netlify.app/)
 
-We built FreshStart to connect wellness creators with people who are on or starting a new wellness journey. Have you ever wanted to start a wellness journey but don't know what's right for you? On FreshStart you gain a transparent view into the real lives of wellness experts who share their diet and exercise routines and how their wellness joruneys make them feel.
+FreshStart is a mobile app connecting wellness creators with people who are on or starting a new wellness journey. Have you ever wanted to start a wellness journey but don't know what's right for you? On FreshStart you gain a transparent view into the real lives of wellness experts who share their diet and exercise routines and how their wellness joruneys make them feel.
 
 If you're starting a new wellness brand and need to build an audience, there's no better place to connect with like-minded people than FreshStart.
 
@@ -36,13 +36,22 @@ For people who are new to their wellness journey you can track your workouts, me
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
+![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white)
+
+
+## Attributions
+
+- Lato font designed by [Łukasz Dziedzic](https://fonts.google.com/specimen/Lato?query=%C5%81ukasz+Dziedzic)
+- Icons from [SVGREPO](www.svgrepo.com)
+- Icons from [Font Awesome](www.fontawesome.com)
+- Landing video by [Taryn Elliott](https://www.pexels.com/@taryn-elliott/)
 
 ## Icebox
 
+- [ ] Create desktop experience
 - [ ] Allow users to track their progress through metrics within each post
 - [ ] Allow users to view their progress on charts
 - [ ] Utilize Edamam API to allow users to track calories of the foods they eat
 - [ ] Allow users to add a bio to their prophile
 - [ ] Implement user roles to allow admins to create new Journeys and promote users to creators
 - [ ] Implement creator status
-- [ ] Improve desktop experience
