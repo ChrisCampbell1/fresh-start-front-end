@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const Landing = ({ user, profile }) => {
   return (
     <main className={styles.container}>
-      {user?
+      {user ?
         <Feed user={user} profile={profile} />
         :
         <div className={styles.landing}>
