@@ -1,14 +1,14 @@
 ![Views of FreshStart](./src/assets/screenshots/portfolio.png)
 
-# FreshStart
-
-## [Start your journey here!](https://startfresh.netlify.app/)
+# [FreshStart](https://startfresh.netlify.app/)
 
 We built FreshStart to connect wellness creators with people who are on or starting a new wellness journey. Have you ever wanted to start a wellness journey but don't know what's right for you? On FreshStart you gain a transparent view into the real lives of wellness experts who share their diet and exercise routines and how their wellness joruneys make them feel.
 
 If you're starting a new wellness brand and need to build an audience, there's no better place to connect with like-minded people than FreshStart.
 
 For people who are new to their wellness journey you can track your workouts, meals, and how your wellness journey is making you feel. Follow your friends for accountability and find wellness together.
+
+## [Start your journey here!](https://startfresh.netlify.app/)
 
 **[Planning Materials](https://trello.com/b/1Rmggolj/freshstart-project-plan)**
 
