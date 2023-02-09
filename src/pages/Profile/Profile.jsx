@@ -43,44 +43,42 @@ const Profile = (props) => {
     <main className={styles.container}>
       {profile._id ? 
         <>
-          <h1>{profile.name}</h1>
-          <div>
-            {
-              profileId !== props.user.profile ?
-              <button id={styles.followBtn} onClick={handleFollow}>
-                {isFollowing ? "Unfollow" : "Follow"}
-              </button>
-              : null
-            }
-          </div>
-          
-          <img className={styles.profilePhoto} src={profile.photo ? profile.photo : defaultProfilePhoto} alt={profile.name} />
-          <section className={styles.stats}>
-              <ul>
-                <li>
-                  <Icon category="Follower"/>
-                  <span>followers: {profile.followers.length}</span>
-                </li>
-                <li>
-                  <Icon category="Following"/>
-                  <span>following: {profile.following.length}</span>
-                </li>
-                <li>
-                  <span>journey list:</span>
-                  <ul>
+          <div className={styles.profile}>
+            <h1>{profile.name}</h1>
+            <div>
+              {
+                profileId !== props.user.profile ?
+                <button id={styles.followBtn} onClick={handleFollow}>
+                  {isFollowing ? "Unfollow" : "Follow"}
+                </button>
+                : null
+              }
+            </div>
+            <img className={styles.profilePhoto} src={profile.photo ? profile.photo : defaultProfilePhoto} alt={profile.name} />
+            <section className={styles.stats}>
+                <div className={styles.followStats}>
+                  <div>
+                    <Icon category="Follower"/>
+                    <span>{profile.followers.length}</span>
+                  </div>
+                  <div>
+                    <Icon category="Following"/>
+                    <span>{profile.following.length}</span>
+                  </div>
+                </div>
+                <div className={styles.journeys}>
+                    <span><strong>journeys:</strong></span>
                     {profile.journeys.length ?
                       profile.journeys.map(journey => (
-                        <li key={journey._id}>{journey.name}</li>
+                        <span key={journey._id}>{journey.name}</span>
                       ))
                       :
-                      <li>No journeys yet...</li>
-                    }
-                  </ul>
-                </li>
-              </ul>
-          </section>
+                      <span>No journeys yet...</span>
+                      }
+                </div>
+            </section>
+          </div>
           <section className={styles.posts}>
-            <h4>Recent Posts</h4>
               {profile.posts.length ?
                 profile.posts.slice(0).reverse().map(post => (
                   <PostCard key={post._id} post={post} user={props.user} />

@@ -4,73 +4,92 @@
   align-items: center;
   flex-flow: column;
   gap: .5rem;
+}
+
+.container .profile {
   background-color: white;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  width: 100%;
+  box-shadow: 0 .125rem .125rem 0 #00000080;
+  padding: .5rem 1rem;
 }
 
-.conatianer a {
-  color: black;
+.container .profile h1 {
+  margin: 0;
+  padding: 0;
 }
 
-.conatianer p {
-  color: black;
-}
-
-.container ul {
-  list-style: none;
-  padding-right: .5rem;
-}
-
-.container > img {
+.container .profile img {
   width: 12rem;
   height: 12rem;
   object-fit: cover;
   border-radius: 12rem;
 }
 
-.container .stats {
+.container .profile .stats {
   width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: .5rem;
+  align-items: center;
+}
+
+.container .profile .stats .followStats {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: .5rem;
+}
+
+.container .profile .stats .followStats div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .profile .stats .followStats img {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0;
   margin: 0;
   padding: 0;
 }
 
-.container .stats ul {
-  display: grid;
-  grid-template-areas: 
-    "followers journeys"
-    "following journeys";
-  gap: .5rem;
-  width: 100%;
+.container .profile .stats .followStats div span {
   text-align: center;
+  width: 2.5rem;
 }
 
-.container .stats ul li {
+.container .profile .stats .journeys {
   width: 100%;
-}
-
-.container .stats ul li:nth-child(3) {
-  grid-area: journeys;
-  border-left: 1px solid gray;
-}
-
-.container .stats ul li:nth-child(3) ul {
-  grid-area: journeys;
-  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: .125rem;
   text-align: center;
-}
-
-.container .stats ul li img {
-  width: 1rem;
-  height: 1rem;
 }
 
 .container .posts {
   width: 100%;
-  text-align: center;
-}
-
-.container .posts h4 {
-  border-bottom: 1px solid gray;
-  padding-bottom: 1rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: .5rem;
 }
 
 #followBtn {
@@ -85,5 +104,4 @@
   border: none;
   font-size: 1rem;
   width: 8rem;
-  margin-bottom: 1rem;
 }
