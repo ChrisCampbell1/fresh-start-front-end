@@ -1,3 +1,44 @@
 .container {
-  
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+}
+
+.container .search {
+  width: 100%;
+  padding: 0 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+  border: none;
+  outline: none;
+  height: 3rem;
+  background-color: white;
+  box-shadow: 0 .125rem .125rem 0 #00000080;
+}
+
+.container .search > * {
+  background-color: black;
+  color: white;
+  height: 2rem;
+  padding: 0 .5rem;
+}
+
+.container .search i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem 0 0 2rem;
+}
+
+.container .search input {
+  border: none;
+  border-radius: 0 2rem 2rem 0;
+}
+
+.container .search input:focus {
+  outline: none;
 }

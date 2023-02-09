@@ -1,7 +1,9 @@
 .container {
   display: flex;
+  flex-flow: column;
   justify-content: center;
   align-items: center;
   gap: .5rem;
-  height: 100%;
+  padding: 0 0 .5rem 0;
+  box-shadow: 0 .125rem .125rem 0 #00000080;
 }
