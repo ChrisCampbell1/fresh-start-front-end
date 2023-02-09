@@ -6,6 +6,7 @@ import AuthorInfo from '../../components/AuthorInfo/AuthorInfo'
 import PostStats from '../../components/PostStats/PostStats'
 import CommentsList from '../../components/CommentsList/CommentsList'
 import AddComment from '../../components/AddComment/AddComment'
+import Icon from '../../components/Icon/Icon'
 
 
 const PostDetails = ({ user, profile }) => {
@@ -60,18 +61,30 @@ const PostDetails = ({ user, profile }) => {
     <main className={styles.container}>
       {post._id ?
       <>
-        <h1>{post.title}</h1>
-        <img className={styles.hero} src={post.photo} alt={post.title} />
-        <AuthorInfo author={post.author} date={post.createdAt}/>
-        {post.author._id === user.profile &&
-        <>
-          <Link to={`/posts/${post._id}/edit`} state={{post}}>Edit Post</Link>
-        </>
+        <div className={styles.post}>
+          <div className={styles.title}>
+            <h1>{post.title}</h1>
+            {post.author._id === user.profile && <Link to={`/posts/${post._id}/edit`} state={{post}}><i className="fas fa-solid fa-pen-to-square fa-xl"></i></Link>}
+          </div>
+          <img className={styles.hero} src={post.photo} alt={post.title} />
+          <div className={styles.info}>
+            <AuthorInfo author={post.author} date={post.createdAt}/>
+            <div className={styles.postType}>
+              <Icon category={post.category}/>
+              <p>{post.journey?.name}</p>
+            </div>
+            <PostStats post={post} handleLike={handleLike} liked={liked} />
+          </div>
+          <p>{post.content}</p>
+        </div>
+        <div className={styles.comments}>
+          <AddComment profile={profile} handleSubmit={handleSubmit} content={content} handleCommentContentChange={handleCommentContentChange} />
+          {post.comments.length ?
+            <CommentsList comments={post.comments} user={user} handleDeleteComment={handleDeleteComment} />
+            :
+            <div>No comments...</div>
         }
-        <p>{post.content}</p>
-        <PostStats post={post} handleLike={handleLike} liked={liked} />
-        <AddComment profile={profile} handleSubmit={handleSubmit} content={content} handleCommentContentChange={handleCommentContentChange} />
-        <CommentsList comments={post.comments} user={user} handleDeleteComment={handleDeleteComment} />
+        </div>
       </>
       :
       <>

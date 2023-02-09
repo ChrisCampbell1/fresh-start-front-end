@@ -3,8 +3,9 @@ import Icon from '../Icon/Icon'
 
 const LikesCounter = ({ post, handleLike, liked }) => {
   return (  
-    <div className={styles.container}>
-      <p onClick={handleLike}><Icon category={'Like'}/>{post.likes?.length}</p>
+    <div className={styles.container} onClick={handleLike}>
+      <Icon category={'Like'}/>
+      <p>{post.likes?.length}</p>
     </div>
   )
 }
