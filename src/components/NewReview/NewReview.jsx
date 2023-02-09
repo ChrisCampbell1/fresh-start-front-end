@@ -3,7 +3,7 @@ import styles from './NewReview.module.css'
 
 
 const NewReview = ({ profile, handleAddReview }) => {
-  const [form, setForm] = useState({ content: '', rating : '0' })
+  const [form, setForm] = useState({ content: '', rating : '3' })
 
   const handleChange = ({ target }) => {
     setForm({ ...form, [target.name]: target.value })
@@ -12,7 +12,7 @@ const NewReview = ({ profile, handleAddReview }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     handleAddReview(form)
-    setForm({ content: '', rating : '0' })
+    setForm({ content: '', rating : '3' })
   }
 
   return (
@@ -31,7 +31,7 @@ const NewReview = ({ profile, handleAddReview }) => {
         <select name="rating" id="rating-select" onChange={handleChange}>
           <option value="5">5</option>
           <option value="4">4</option>
-          <option value="3">3</option>
+          <option value="3" selected="selected">3</option>
           <option value="2">2</option>
           <option value="1">1</option>
         </select>
