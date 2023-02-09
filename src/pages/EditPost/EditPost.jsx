@@ -1,5 +1,5 @@
 import styles from './EditPost.module.css'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import * as profileService from '../../services/profileService'
 import * as postService  from '../../services/postService'
@@ -19,7 +19,7 @@ const EditPost = (props) => {
       setJourneys(profile.journeys)
     }
     fetchJourneys()
-  }, [])
+  }, [props.user.profile])
 
   const handleChange = ({ target }) => {
     setForm({ ...form, [target.name]: target.value })
