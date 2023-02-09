@@ -47,7 +47,7 @@ const Profile = (props) => {
           <div>
             {
               profileId !== props.user.profile ?
-              <button onClick={handleFollow}>
+              <button id={styles.followBtn} onClick={handleFollow}>
                 {isFollowing ? "Unfollow" : "Follow"}
               </button>
               : null

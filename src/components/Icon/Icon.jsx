@@ -3,6 +3,7 @@ import meal from '../../assets/icons/meal.svg'
 import thought from '../../assets/icons/thought.svg'
 import date from '../../assets/icons/date.svg'
 import like from '../../assets/icons/like.svg'
+import liked from '../../assets/icons/liked.svg'
 import comment from '../../assets/icons/comment.svg'
 import follower from '../../assets/icons/follower.svg'
 import follow from '../../assets/icons/follow.svg'
@@ -24,7 +25,8 @@ const Icon = ({ category }) => {
     Unfollow: unfollow,
     Following: following,
     Star: star,
-    GitLogo: git
+    GitLogo: git,
+    Liked: liked,
 
   }
   return (  

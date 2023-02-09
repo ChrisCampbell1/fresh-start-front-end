@@ -4,6 +4,7 @@
   align-items: center;
   flex-flow: column;
   gap: .5rem;
+  background-color: white;
 }
 
 .conatianer a {
@@ -16,6 +17,7 @@
 
 .container ul {
   list-style: none;
+  padding-right: .5rem;
 }
 
 .container > img {
@@ -64,10 +66,24 @@
 .container .posts {
   width: 100%;
   text-align: center;
-  list-style: none;
 }
 
 .container .posts h4 {
   border-bottom: 1px solid gray;
   padding-bottom: 1rem;
+}
+
+#followBtn {
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  height: 2rem;
+  padding: 0 1rem;
+  border-radius: .5rem;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  width: 8rem;
+  margin-bottom: 1rem;
 }
