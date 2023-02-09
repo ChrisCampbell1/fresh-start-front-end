@@ -8,7 +8,7 @@ import * as postService from '../../services/postService'
 
 const PostCard = (props) => {
   const [post, setPost] = useState(props.post)
-  const [liked, setLiked] = useState(null)
+  const [liked, setLiked] = useState(post.likes.includes(props.user.profile))
 
   const handleLike = async () => {
     if (post.likes.includes(props.user.profile)) {
