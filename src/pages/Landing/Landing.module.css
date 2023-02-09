@@ -2,5 +2,76 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-bottom: .5rem;
+  padding: 0rem;
+}
+
+.landing {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.heroLogo{
+  z-index: 1;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+article {
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  border-radius: .5rem;
+  margin-bottom: 2rem;
+  filter: drop-shadow(10px 10px 4px #0000007c);
+  text-align: left;
+}
+
+.landing a {
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  height: 2rem;
+  padding: .5rem;
+  border-radius: .5rem;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  width: 17rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.landing p {
+  font-size: 1.25rem;
 }
