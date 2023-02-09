@@ -36,6 +36,10 @@
   margin-top: 50px;
 }
 
+.heroLogo img {
+  width: 100%;
+}
+
 .body {
   padding: 1rem;
   display: flex;
