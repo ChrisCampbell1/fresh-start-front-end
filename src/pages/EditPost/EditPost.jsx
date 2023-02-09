@@ -54,7 +54,7 @@ const EditPost = (props) => {
             name='title'
             id='title-input'
             value={form.title}
-            placeholder='title'
+            placeholder='Enter your title here'
             onChange={handleChange}
           />
         </div>
