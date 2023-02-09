@@ -4,6 +4,7 @@
   align-items: center;
   flex-flow: column;
   gap: .5rem;
+  background-color: white;
 }
 
 .conatianer a {
