@@ -23,6 +23,7 @@
   justify-content: space-between;
 }
 
+
 .postPhoto {
   width: 100%;
   margin-left: auto;
@@ -45,5 +46,5 @@
 .postType img{
   height: 1rem;
   width: 1rem;
-  margin-top: .5rem;
+  margin-top: 1rem;
 }
