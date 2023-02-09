@@ -30,7 +30,7 @@
 
 .heroLogo{
   z-index: 1;
-  width: 100%;
+  width: 95%;
   position: relative;
   justify-content: center;
   align-items: center;
@@ -81,4 +81,47 @@ article {
 
 .landing p {
   font-size: 1.25rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0rem;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero {
+    position: relative;
+    height: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 0;
+  }
+  
+  .heroLogo{
+    z-index: 1;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+  }
+  
+  .heroLogo img {
+    width: 100%;
+    height: 100%;
+  }
 }
