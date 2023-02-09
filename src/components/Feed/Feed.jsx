@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react'
 import PostCard from '../PostCard/PostCard'
 import FeedFilter from '../FeedFilter/FeedFilter'
 import { Link } from 'react-router-dom'
+import logo from '../../assets/logo2.png'
 
-const Feed = ({user}) => {
+const Feed = ({user, profile}) => {
   const [posts, setPosts] = useState([])
   const [searchedPosts, setSearchedPosts] = useState([])
   const [sortStatus, setSortStatus] = useState(null)
@@ -35,6 +36,11 @@ const Feed = ({user}) => {
         searchedPosts.map(post =>
           <PostCard key={post._id} post={post} user={user}/>
         )
+        :
+        profile.following ?
+        <div className={styles.loading}>
+          <img src={logo} alt="" />
+        </div>
         :
         <div className={styles.blankFeed}>
           <h1>Welcome to FreshStart</h1>
