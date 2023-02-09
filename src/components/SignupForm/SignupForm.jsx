@@ -28,18 +28,21 @@ const SignupForm = props => {
   const handleSubmit = async e => {
     e.preventDefault()
     try {
+      console.log(formData)
       await authService.signup(formData, photoData.photo)
       props.handleSignupOrLogin()
       navigate('/')
     } catch (err) {
+      console.log(err)
       props.updateMessage(err.message)
     }
   }
 
   const { name, email, password, passwordConf } = formData
 
+
   const isFormInvalid = () => {
-    return !(name && email && password && password === passwordConf)
+    return !(name && email && password && password === passwordConf && photoData)
   }
 
   return (
@@ -105,6 +108,7 @@ const SignupForm = props => {
           id="photo-upload"
           name="photo"
           onChange={handleChangePhoto}
+          required
         />
       </div>
       <div className={styles.inputContainer}>
