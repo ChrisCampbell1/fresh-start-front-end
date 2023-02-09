@@ -37,7 +37,6 @@ const NewPost = (props) => {
   const handleSubmit = async (evt) => {
     evt.preventDefault()
     const newPost = await postService.create(form)
-    console.log(newPost, "new post")
     await postService.addPostPhoto(photoData, newPost._id)
     navigate('/')
   }
