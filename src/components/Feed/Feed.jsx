@@ -39,7 +39,7 @@ const Feed = ({user, profile}) => {
         <div className={styles.blankFeed}>
           <h1>Welcome to FreshStart</h1>
           <p>This is your feed.</p>
-          <p>Once you start following some creators or make some pots you'll start to see posts here.</p>
+          <p>Once you start following some creators or make some posts, you'll start to see posts here.</p>
           <p>{user.profile.following}</p>
           <Link to={'/journeys'}>Find Your Wellness Journey</Link>
           <Link to={'/discover'}>Follow Creators</Link>

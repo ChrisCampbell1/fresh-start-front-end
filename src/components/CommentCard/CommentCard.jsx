@@ -9,7 +9,6 @@ const CommentCard = ({ comment, user, handleDeleteComment }) => {
         <p>{comment.content}</p>
       </div>
       {comment.author._id === user.profile && <i className="fas fa-solid fa-x" id={comment._id} onClick={handleDeleteComment}></i>}
-
     </div>
   )
 }

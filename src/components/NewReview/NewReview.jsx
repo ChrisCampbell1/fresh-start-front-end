@@ -25,7 +25,7 @@ const NewReview = ({ profile, handleAddReview }) => {
           name="content"
           id="text-input"
           value={form.content}
-          placeholder="Add a Review"
+          placeholder="add a review"
           onChange={handleChange}
         />
         <select name="rating" id="rating-select" defaultValue="3" onChange={handleChange}>

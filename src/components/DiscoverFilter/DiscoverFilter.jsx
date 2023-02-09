@@ -27,7 +27,7 @@ const DiscoverFilter = ({ handleSort, handleFilter, sortStatus }) => {
           }
       </div>
       <select className={styles.filter} onChange={handleFilter}>
-        <option value=''>Filter by Journey</option>
+        <option value=''>filter by journey</option>
         {journeys.map(journey => (
           <option key={journey._id} value={journey._id}>{journey.name}</option>
         ))}

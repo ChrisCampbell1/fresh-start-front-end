@@ -1,3 +1,7 @@
+![Landing Page](./src/assets/screenshots/landing.png)
+![Feed Page](./src/assets/screenshots/feed.png)
+![Journey Page](./src/assets/screenshots/journey.png)
+
 # FreshStart
 
 ## [Start your journey here!](https://startfresh.netlify.app/)

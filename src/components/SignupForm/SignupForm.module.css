@@ -44,12 +44,11 @@ label {
 }
 
 .photoInput {
-  align-items: center;
-  justify-content: center;
+  text-align: center;
   height: 2rem;
   padding: .5rem 1rem;
   border-radius: .5rem;
   background-color: black;
   color: white;
-  width: 8rem;
+  width: max-content;
 }

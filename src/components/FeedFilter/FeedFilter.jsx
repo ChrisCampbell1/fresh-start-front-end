@@ -24,7 +24,7 @@ const FeedFilter = ({ handleSort, handleSearch, sortStatus }) => {
       </div>
       <div className={styles.search}>
         <i className="fas fa-solid fa-magnifying-glass fa-s"></i>
-        <input type="search" value={searchText} onChange={handleChange} placeholder="search by author..." />
+        <input type="search" value={searchText} onChange={handleChange} placeholder="search by author" />
       </div>
     </div>
   )
