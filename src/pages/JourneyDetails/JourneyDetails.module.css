@@ -95,6 +95,16 @@
 .container .review {
   background-color: white;
   width: 100%;
-  border: 1px solid red;
+  margin-bottom: .5rem;
+}
+
+.container .subscribers {
+  width: 100%;
+  background-color: gray;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
   margin-bottom: .5rem;
 }

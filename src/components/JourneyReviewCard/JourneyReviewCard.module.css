@@ -1,39 +1,62 @@
 .container {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: .5rem;
+  width: 100%;
+  padding: 0 1rem;
 }
 
 #avatar {
-  height: 4rem;
-  width: 4rem;
+  min-width: 2rem;
+  height: 2rem;
   object-fit: cover;
-  border-radius: 50%;
-  margin-right: 1rem;
-  margin-left: 1rem;
+  border-radius: 2rem;
+  padding: 0;
+  margin: 0;
 }
 
-.rating img{
-  height: 1rem;
-  width: 1rem;
+.container .content {
+  background-color: black;
+  color: white;
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+  width: 100%;
+}
+
+.container .content p {
+  padding: 0;
+  margin: 0;
+}
+
+.container .content p:first-child {
+  font-weight: bold;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .25rem;
+}
+
+.rating i {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #delete {
-  /* width: 8rem; */
-  /* margin-top: 5rem; */
-  /* margin-left: auto;
-  margin-right: auto; */
-  background-color: #ff4b4b;
+  background-color: black;
   color: white;
-  font-weight: bold;
-  padding: .75rem;
-  border-radius: 1rem;
-  border: none;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  margin-top: .5rem;
-}
-
-.left {
+  min-width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  border: none;
 }

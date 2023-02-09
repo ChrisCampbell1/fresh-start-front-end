@@ -102,7 +102,7 @@ const JourneyDetails = ({ user, profile }) => {
             <div className={styles.review}>No reviews for this journey yet.</div>
           ) :
           subscriberProfiles && subscriberProfiles.length > 0 ? (
-            <div>
+            <div className={styles.subscribers}>
               {subscriberProfiles
               .sort((a, b) => b.followers.length - a.followers.length)
               .map(profile => 

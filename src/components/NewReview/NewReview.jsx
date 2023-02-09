@@ -1,6 +1,5 @@
 import { useState } from "react"
 import styles from './NewReview.module.css'
-import Icon from "../Icon/Icon"
 
 
 const NewReview = ({ profile, handleAddReview }) => {
