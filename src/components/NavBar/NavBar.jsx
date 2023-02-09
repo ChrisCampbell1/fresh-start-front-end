@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState,useEffect } from 'react'
 import style from './NavBar.module.css'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo2.png'
 
 const NavBar = ({ user, handleLogout, profile }) => {
   const [navState, setNavState] = useState(false)
