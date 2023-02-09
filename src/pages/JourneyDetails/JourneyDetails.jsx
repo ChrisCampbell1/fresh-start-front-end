@@ -10,7 +10,7 @@ import * as journeyService from '../../services/journeyService'
 import * as profileService from '../../services/profileService'
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
 
-const JourneyDetails = (props) => {
+const JourneyDetails = ({ user, profile }) => {
   const { id } = useParams()
   const [journey, setJourney] = useState({})
   const [subscriberProfiles, setsubscriberProfiles] = useState({})
@@ -56,9 +56,9 @@ const JourneyDetails = (props) => {
   
   useEffect(() => {
     setIsSubscribed(
-      journey.subscribers && journey.subscribers.some(subscriber => subscriber._id === props.user.profile)
+      journey.subscribers && journey.subscribers.some(subscriber => subscriber._id === user.profile)
     )
-  }, [journey.subscribers, props.user.profile])
+  }, [journey.subscribers, user.profile])
   
   useEffect(() => {
     const fetchProfiles = async () => {
@@ -95,8 +95,8 @@ const JourneyDetails = (props) => {
         {reviewsState ?
           journey.reviews && journey.reviews.length > 0 ? (
             <div className={styles.review}>
-              <NewReview handleAddReview={handleAddReview}/>
-              <JourneyReviews journeyId={journey._id} reviews={journey.reviews} user={props.user} handleDeleteReview={handleDeleteReview} />
+              <NewReview handleAddReview={handleAddReview} profile={profile} />
+              <JourneyReviews journeyId={journey._id} reviews={journey.reviews} user={user} handleDeleteReview={handleDeleteReview} />
             </div>
           ) : (
             <div className={styles.review}>No reviews for this journey yet.</div>

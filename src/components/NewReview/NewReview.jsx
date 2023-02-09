@@ -3,7 +3,7 @@ import styles from './NewReview.module.css'
 import Icon from "../Icon/Icon"
 
 
-const NewReview = (props) => {
+const NewReview = ({ profile, handleAddReview }) => {
   const [form, setForm] = useState({ content: '', rating : '0' })
 
   const handleChange = ({ target }) => {
@@ -12,30 +12,33 @@ const NewReview = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    props.handleAddReview(form)
+    handleAddReview(form)
     setForm({ content: '', rating : '0' })
   }
 
   return (
-    <form className={styles.container} onSubmit={handleSubmit}>
-      <input
-        required
-        type="text"
-        name="content"
-        id="text-input"
-        value={form.content}
-        placeholder="Add a Review"
-        onChange={handleChange}
-      />
-      <select name="rating" id="rating-select" onChange={handleChange}>
-        <option value="5">5</option>
-        <option value="4">4</option>
-        <option value="3">3</option>
-        <option value="2">2</option>
-        <option value="1">1</option>
-      </select>
-      <button type="submit">Submit</button>
-    </form>
+    <div className={styles.container}>
+      <img src={profile.photo} alt={profile.name} />
+      <form onSubmit={handleSubmit}>
+        <input
+          required
+          type="text"
+          name="content"
+          id="text-input"
+          value={form.content}
+          placeholder="Add a Review"
+          onChange={handleChange}
+        />
+        <select name="rating" id="rating-select" onChange={handleChange}>
+          <option value="5">5</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+        </select>
+        <button type="submit"><i className="fas fa-solid fa-plus fa-xl"></i></button>
+      </form>
+    </div>
   )
 }
 
