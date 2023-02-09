@@ -4,7 +4,8 @@ import Icon from '../Icon/Icon'
 const CommentsCounter = ({ post }) => {
   return (  
     <div className={styles.container}>
-      <p><Icon category={'Comment'}/>{post.comments.length}</p>
+      <Icon category={'Comment'}/>
+      <p>{post.comments.length}</p>
     </div>
   )
 }
