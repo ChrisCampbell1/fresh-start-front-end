@@ -33,7 +33,7 @@
   padding: 0 1rem;
   margin: 0;
   height: 2rem;
-  border-radius: 2rem;
+  border-radius: .5rem;
 }
 
 .container form input:focus { 
@@ -46,7 +46,7 @@
   color: white;
   min-width: 2rem;
   height: 2rem;
-  border-radius: 2rem;
+  border-radius: .5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,9 +56,12 @@
   border: none;
   width: 4rem;
   height: 2rem;
-  border-radius: 2rem;
+  border-radius: .5rem;
 }
 
 .container select:focus {
-  outline: none;
+  border: none;
+  width: 4rem;
+  height: 2rem;
+  border-radius: .5rem;
 }
