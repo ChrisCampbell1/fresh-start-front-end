@@ -21,10 +21,14 @@ const ProfileCard = ({ profile }) => {
         </Link>
       ))}
     <div className={styles.profileStats}>
-      <p>Member Since: {formattedDate}</p>
-      <p>
-        <Icon category="Follower" />   {profile.followers.length}
-      </p>
+      <div>
+        <Icon category="Date" />
+        <p>{formattedDate}</p> 
+      </div>
+      <div>
+        <Icon category="Follower" />
+        <p>{profile.followers.length}</p>
+      </div>
     </div>
   </div>
   )

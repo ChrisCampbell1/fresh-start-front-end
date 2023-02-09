@@ -43,8 +43,8 @@ const EditPost = (props) => {
 
   return (  
     <main className={styles.container}>
-      <h1>Edit Post</h1>
       <form className={styles.form} autoComplete='off' onSubmit={handleSumbit}>
+      <h1>Edit Post</h1>
         <div className={styles.inputContainer}>
           <label htmlFor='title-input'>Title</label>
           <textarea
@@ -106,9 +106,9 @@ const EditPost = (props) => {
         </div>
         <div className={styles.inputContainer}>
           {photoData ?
-            <label htmlFor="photo-input" className={styles.photoInput}>Photo Added</label>
+            <button htmlFor="photo-input" className={styles.photoInput}>Photo Added</button>
               :
-              <label htmlFor="photo-input" className={styles.photoInput}>Edit Photo</label>
+              <button htmlFor="photo-input" className={styles.photoInput}>Edit Photo</button>
             }
           <input
             type='file'
@@ -118,7 +118,7 @@ const EditPost = (props) => {
           />
         </div>
         <div>
-          <button id={styles.edit}>Edit Post</button>
+          <button id={styles.edit}>Update</button>
         </div>
       </form>
       <div className={styles.delete}>
