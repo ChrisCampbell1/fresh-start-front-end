@@ -75,7 +75,7 @@ const PostDetails = ({ user, profile }) => {
             </div>
             <PostStats post={post} handleLike={handleLike} liked={liked} />
           </div>
-          <p>{post.content}</p>
+          <p className={styles.content}>{post.content}</p>
         </div>
         <div className={styles.comments}>
           <AddComment profile={profile} handleSubmit={handleSubmit} content={content} handleCommentContentChange={handleCommentContentChange} />
