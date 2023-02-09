@@ -1,6 +1,4 @@
-![Landing Page](./src/assets/screenshots/landing.png)
-![Feed Page](./src/assets/screenshots/feed.png)
-![Journey Page](./src/assets/screenshots/journey.png)
+![Views of FreshStart](./src/assets/screenshots/portfolio.png)
 
 # FreshStart
 
