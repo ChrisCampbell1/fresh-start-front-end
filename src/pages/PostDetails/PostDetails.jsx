@@ -8,7 +8,6 @@ import CommentsList from '../../components/CommentsList/CommentsList'
 import AddComment from '../../components/AddComment/AddComment'
 import Icon from '../../components/Icon/Icon'
 
-
 const PostDetails = ({ user, profile }) => {
   const [post, setPost] = useState({})
   const [liked, setLiked] = useState(null)
@@ -16,14 +15,15 @@ const PostDetails = ({ user, profile }) => {
 
   
   const { id } = useParams()
-  
-    useEffect(() => {
-      const fetchPost = async () => {
-        let data = await postService.show(id)
-        setPost(data)
-      }
-      fetchPost()
-    }, [id])
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      let data = await postService.show(id)
+      setPost(data)
+      setLiked(data.likes.includes(user.profile))
+    }
+    fetchPost()
+  }, [id , user.profile])
 
   const handleLike = async () => {
     if (post.likes.includes(user.profile)) {
