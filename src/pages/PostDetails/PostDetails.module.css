@@ -79,6 +79,10 @@
   padding: 0;
 }
 
+.container .post .content {
+  padding: 0 1rem;
+}
+
 .container .comments {
   background-color: white;
   width: 100%;
