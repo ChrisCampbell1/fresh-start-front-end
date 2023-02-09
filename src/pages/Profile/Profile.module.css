@@ -28,6 +28,8 @@
   height: 12rem;
   object-fit: cover;
   border-radius: 12rem;
+  margin: 0;
+  padding: 0;
 }
 
 .container .profile .stats {
