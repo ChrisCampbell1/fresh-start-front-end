@@ -106,9 +106,9 @@ const EditPost = (props) => {
         </div>
         <div className={styles.inputContainer}>
           {photoData ?
-            <button htmlFor="photo-input" className={styles.photoInput}>Photo Added</button>
+            <label htmlFor="photo-input" className={styles.photoInput}>Photo Added</label>
               :
-              <button htmlFor="photo-input" className={styles.photoInput}>Edit Photo</button>
+              <label htmlFor="photo-input" className={styles.photoInput}>Edit Photo</label>
             }
           <input
             type='file'
