@@ -16,6 +16,7 @@
   background-color: white;
   box-shadow: 0 .125rem .125rem 0 #00000080;
   padding-bottom: .5rem;
+  width: 100%;
 }
 
 .container .post a {
@@ -100,4 +101,3 @@
   margin: 0;
   padding: 0;
 }
-

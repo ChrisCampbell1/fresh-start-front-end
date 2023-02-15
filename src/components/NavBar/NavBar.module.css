@@ -76,3 +76,11 @@
   text-decoration: none;
   color: white;
 }
+
+@media only screen and (min-width: 600px) {
+  #mobileNav {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
